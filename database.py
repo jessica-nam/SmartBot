@@ -13,6 +13,17 @@ def build_url(base_url=URL, tab="newest", page=1):
 
     return f"{base_url}?tab={tab}&page={page}"
 
+def build_answer_url(base_url=URL, postID="/", question=""):
+    """ Builds StackOverflow answer URL format which takes in two parameters: postID and question
+        Example: https://stackoverflow.com/questions/74701549/is-there-any-documentation-on-the-typescript-type-spread-behavior"""
+    question = question.replace(' ', '-')
+    print(f"https://stackoverflow.com/questions{postID}/{question}")
+    return f"https://stackoverflow.com/questions/{postID}/{question}"
+    # urljoin(URL, '/{postID}')
+    # url = urljoin(URL, '/{question}')
+    # print(url)
+    # return url
+
 def scrape_one_question_page(page=1):
     """ Retrives newest question and answers from StackOverflow by scraping one page 
         *** NOTE TO SELF: "answers" derived from this function only indicates answer count """
@@ -113,14 +124,22 @@ def export_data():
             writer.writerow(i)
         print("Done writing")
 
-def scrape_one_answer_page(page=1):
+def scrape_one_answer_page(postID, question):
     """ Retrives the answer from the question page by the postID """
 
-    
+    response = requests.get(build_answer_url(postID, question))
+    soup = BeautifulSoup(response.text, features="html.parser")
+
+    answers_list = soup.find_all(
+        "div", class_="s-prose js-post-body")
+
+    for x in answers_list:
+        print(x.find('p').text)
     
 
 if __name__ == "__main__":
 
     from pprint import pprint # For readability
+    scrape_one_answer_page("36730372", "extract-the-text-from-p-within-div-with-beautifulsoup")
     export_data()
 
