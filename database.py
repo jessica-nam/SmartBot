@@ -105,7 +105,7 @@ def scrape_question_pages(page_limit):
 
 def export_data():
     data = scrape_one_question_page(2)
-    with open("questions.csv", "w") as f:
+    with open("questions.csv", "w", encoding="utf-8") as f:
         fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
