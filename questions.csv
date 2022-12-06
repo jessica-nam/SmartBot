@@ -1,51 +1,51 @@
 question,postID,votes,answers,views
+Android: (In work profile in Android Device)packageManager.queryIntentActivities returning empty list in targetSDKVersion 33,74702253,0,0,7
+How not to use CompletableFuture as a shared state with EventListener in Spring,74702250,1,0,9
+How to improve search faster inside json file?,74702247,0,0,10
+"ValueError: Columns must be same length as key in querycat.Categorize(df_merge_col, 'Keyword', min_lift=10, alg='apriori')",74702246,0,0,4
+geoserver as cascading wmts cache for os maps api is slow for some requests,74702245,0,0,3
+Sample MPU6050 inside Interrupt Service Routine,74702244,0,0,6
+Laravel9 Query using search is using all rows in table after filtering,74702240,0,0,6
+Azure Data Factory2's pagination rule (for HTTP API),74702237,0,0,7
+What would be the correct code in order to get the factorial of n?,74702236,0,3,13
+"How to write a Datadog monitor cardinality service to exclude AWS, GCP, and Azure services",74702234,0,0,4
+MSVC compiler generates ineffective code for unrolled loop with pointer comparison,74702233,0,0,8
+Automate Azure SSO AD integration with snowflake,74702232,1,0,9
+Jsonize Pandas Complex Times Series From Numpy Vector,74702230,0,1,8
+How can I create a secure application-database connection?,74702227,0,0,18
+My custom error page is not used when errors occur in the production environment,74702226,0,0,5
+Interfaces design best practices (separate interfaces vs inheritance),74702225,0,0,11
+How to separate functional logic and user interface when getting data,74702223,0,0,10
+A function that sums cell values by conditions in R,74702220,-1,0,15
+Can anyone help me in the solution of this diamond pattern [duplicate],74702216,-4,0,13
+is it possible to drop not exact duplicates?,74702213,0,0,17
+Angular Spring boot on AWS Fargate,74702212,0,1,12
+how to use zip efficiently to iterate parallelly in multiple lists,74702203,0,2,17
+Adding String Value Converted From YAML File To PowerShell Array As An Object,74702202,0,0,12
+"How to make an ""all application"" ""Clear Menu"" keyboard shortcut?",74702200,0,0,6
+How to download the media content like images/videos from a tweet url using tweepy in python,74702199,0,0,5
+react native expo resolutionStrategy,74702197,0,0,7
+You can't see the content ofthis report because you don't have permissions to the underlyingdataset?,74702195,0,0,8
+What is the order of rebalansing different consumers group in kafka?,74702194,0,0,7
+how to get value inside the array result in python?,74702193,0,1,20
 Dart Analysis Server client: couldn't create connection to server,74702192,0,0,7
-I want to collect existing excel files as different sheets in a single excel file,74702189,0,0,8
-Javafx Button Click to create new object,74702187,0,0,12
-Generic Function with Omit gives could be instantiated with an arbitrary type error,74702186,0,0,7
+I want to collect existing excel files as different sheets in a single excel file,74702189,0,0,9
+Javafx Button Click to create new object,74702187,0,0,14
+Generic Function with Omit gives could be instantiated with an arbitrary type error,74702186,0,0,8
 how to remove blank screen after splash screen in yocto,74702185,0,0,2
-Setting up CI/CD pipeline for Nextjs13,74702183,0,0,5
+Setting up CI/CD pipeline for Nextjs13,74702183,0,0,6
 The plugin firebase_database requires a higher Android SDK version,74702182,0,0,9
-Angular tabView primeNG routing,74702181,0,0,6
+Angular tabView primeNG routing,74702181,0,0,7
 "MultiIndex: on 2nd level, drop first column from each column on 1st level [duplicate]",74702179,0,0,9
 "In C#, in visual studio , windows forms, How to change colour of a line with click of a button?",74702178,0,0,9
-How print tickets with nodejs?,74702176,0,0,8
-AWS RDS DbConnections monitoring - odd flat red line without much meaning,74702173,0,0,5
-Convert str from textEdit in to float,74702169,0,0,15
-How to inherit from one parent or another one (not both),74702168,0,0,8
-"How can I sort a vector<pair<<float, float>, unsigned int>> by the first float, and if there's a tie the second float?",74702166,0,0,15
-Call on data from an unnamed nested dictionary on Python,74702163,0,1,20
-"How to solve ""Could not find module ‘Data.List.Split’"" in GHCi?",74702158,0,0,7
-"Is there a dynamic way of concatenating values over an unknown number (i.e., a dynamic number) of columns in a dataframe?",74702157,0,1,15
-how to mock a lifecycle function afterNavigate() in svelte?,74702156,0,0,4
-502 bad gateway error pointing django model.py to other database,74702153,0,0,7
+How print tickets with nodejs?,74702176,0,0,9
+AWS RDS DbConnections monitoring - odd flat red line without much meaning,74702173,0,0,6
+Convert str from textEdit in to float,74702169,0,0,17
+How to inherit from one parent or another one (not both),74702168,0,0,11
+"How can I sort a vector<pair<pair<float, float>, unsigned int>> by the first float, and if there's a tie the second float?",74702166,0,0,21
+Call on data from an unnamed nested dictionary on Python,74702163,0,1,22
+"How to solve ""Could not find module ‘Data.List.Split’"" in GHCi?",74702158,0,0,8
+"Is there a dynamic way of concatenating values over an unknown number (i.e., a dynamic number) of columns in a dataframe?",74702157,0,1,16
+how to mock a lifecycle function afterNavigate() in svelte?,74702156,0,0,5
+502 bad gateway error pointing django model.py to other database,74702153,0,0,8
 Tensorflow - TFLITE,74702152,0,0,6
-Installing symfony 5.4 fails,74702146,0,1,11
-how to select which variables are we going to use in ML,74702144,0,0,3
-PHPStorm CSSO File Watcher: Error after save,74702140,0,0,4
-How can I convert hex file which is consistent with the Verilog $readmemh() system task to ihex(Intel hex)?,74702139,0,0,4
-Why I'm I getting an infinite loop while using this recursive function and Data structure - Python? [duplicate],74702136,0,0,17
-How to get value returned from json and let it display on text widget in flutter,74702134,0,2,15
-Vite build gives QSocketNotifier: Can only be used with threads started with QThread error,74702133,0,0,7
-How to add rows to an existing tabel in Word with apche poi?,74702132,0,0,11
-how to call kedro pipline or nodes in Django framework,74702124,0,0,7
-Scraping with python requests,74702123,0,0,8
-Kusto - Is there a replace multiple/ parse unicode in string function?,74702122,0,0,12
-"React JS, Typescript ""Object is possibly 'null'"" with useRefs",74702117,0,1,22
-Run the same Job simultaneously with different parameters in Pentaho PDI,74702115,0,0,6
-OpenWRT backported ath11k can't find backported dependencies at build time,74702114,0,0,7
-How can I check if the numbers contains arabic numbers in a list of string,74702113,0,0,21
-Replace value of a given key with value of another given key in Python Dictionary,74702112,0,2,19
-R looping across variables repeatedly,74702111,0,0,17
-Creating a dynamically alocated array in C/C++ [closed],74702110,-2,0,17
-How to start TwinCAT with Pyads,74702104,0,1,11
-Symfony Increment value in Database,74702103,0,0,12
-Spring boot app and what approach to use to download bulk data,74702098,0,0,9
-atomicAdd - CUDA function,74702095,0,0,8
-DS Fault Message: Error in 'createProcessedPreparedStatement' in WSO2 DataService,74702092,0,0,11
-Angular : how remove dropped item in drag and drop angular/cdk,74702089,0,0,14
-ctl00$ContentPlaceHolder1$ in asp.net,74702088,0,0,8
-"File chunk upload to azure storage blob, file seems broken",74702087,1,0,15
-"not creating new column in a for loop, why?",74702086,0,0,13
-How do I get AWK to reaarrange and manipulate text in a file to two output files depending on conditions?,74702083,0,0,19
-Mattermost mention highlighting does not working as expected,74702082,0,0,6

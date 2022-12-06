@@ -76,8 +76,6 @@ def scrape_one_question_page(page=1):
     triplet_vote_answer_view_list = [
     OnePageOutput[i:i + 5] for i in range(0, len(OnePageOutput), 5)]
 
-    print(triplet_vote_answer_view_list)
-
     # Dictionary format for CSV
     QuestionPage = []
 
@@ -104,19 +102,11 @@ def scrape_question_pages(page_limit):
         questions.extend(page_question) # Use extend to add multiple items
     return questions
 
-def scrape_answer_pages(page_limit):
-    """ This function can scrape multiple pages limited to page_limit """
-    questions = []
-    for i in range(1, page_limit + 1):
-        page_question = scrape_one_answer_page(i)
-        questions.extend(page_question) # Use extend to add multiple items
-    return questions
-
 
 def export_data():
     data = scrape_one_question_page(2)
     with open("questions.csv", "w") as f:
-        fieldnames = ["question", "postID", "votes", "answers", "views"]
+        fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for i in data:
@@ -124,31 +114,13 @@ def export_data():
         print("Done writing")
 
 def scrape_one_answer_page(page=1):
-    """ Retrives the answer from the question page by the link """
-
-    # Access the question page to grab the question ID
-    response = requests.get(build_url(page=page))
-    soup = BeautifulSoup(response.text, features="html.parser")
+    """ Retrives the answer from the question page by the postID """
 
     
-    # find link
-    answers_link_list = soup.find_all("a", class_="s-link")
-
-    # Remove the first two links which are javascript:void(0)
-    answers_link_list = answers_link_list[2:]
-
-    #Remove last link which is https://stackexchange.com/questions?tab=hot
-    answers_link_list = answers_link_list[:-1]
-
-    for i in answers_link_list:
-        link = i['href']
-        post_ID = link[11:19]
-
     
 
 if __name__ == "__main__":
 
     from pprint import pprint # For readability
-    pprint(scrape_one_question_page(1))
     export_data()
-    scrape_answer_pages(2)
+
