@@ -10,6 +10,10 @@ Sometimes just talking through a coding problem will lead to the solution. There
 
 ## Process
 
-### 1. Data Extraction (done)
+### 1. Data Extraction
 First, I needed to get my data for my SmartBot to work on. For this, I used the Python module BeautifulSoup, a Python package for parsing HTML and XML documents. I also used the requests library, which is a HTTP library for Python, to grab the Stack Overflow Questions page URL. Then, I created functions to scrape the webpages by using the BeautifulSoup module and identified the question, vote, answer, and view values for that page. All of these values were then exported into a questions.csv file. 
 The format of this CSV file is question, votes, answers, views.
+
+## 2. Machine Learning Model
+
+## 3. Training
