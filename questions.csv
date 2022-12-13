@@ -1,101 +1,100 @@
 question,postID,votes,answers,views
+Nodejs: extends class and change parent variable per child classes,74783080,0,0,4
+How Could make my app name fully visible in the navigation bar of Salesforce App Page if this name has more than 17 characters including spaces?,74783078,0,0,2
+Study names not showing in forest in R,74783077,0,0,3
+NuGet package of MVVM pattern for Blazor + Telerik server web applicatoin,74783076,0,0,3
+Client query is not a function graphql nextjs,74783075,0,0,3
+Saving Animations in Draw.io,74783074,0,0,3
+Cant update node version on github codespaces,74783073,0,0,2
+Data is not storing in products store (redux-toolkit),74783072,0,0,4
+Reading binary file to find a sequences of ints little endian (permutations),74783071,0,0,5
+Ajax- DataTable Not Nowrking,74783069,0,0,3
+Python/PySide6: Apply different style to sub class,74783066,0,0,4
+Make lambda expression independent of local variable; Use lambda expression in for loop,74783063,0,0,7
+Deprecated: preg_split(): Passing null to parameter #3 ($limit) of type int is deprecated [duplicate],74783061,-1,0,5
+Spring Boot upgrade to 2.4.13 deployed to websphere 8.5.5 java.lang.NoSuchMethodError: javax/servlet/http/HttpServletResponse.setContentLengthLong,74783057,0,0,4
+Change colors based on value,74783055,0,0,10
+I wrote a simple Hello world in c on vs code but when I opened the same file it gave me a Clang error,74783053,0,0,6
+Redirect from a form to another form by button based on if else statement,74783051,0,0,5
+Regex match russian words in string with boundaries,74783049,-1,0,4
+Replace a letter in an array with hidden letters in javascript (hangman school project),74783047,0,0,11
+Receive serialized JSON by TCP socket in Flutter/dart,74783044,0,0,5
+"How to write a values in HTML template, Using Microservices?",74783042,0,0,3
+How does NFC communication between two androids works in tap-on-phone technology,74783040,0,0,5
+Quarkus : unable to find valid certification path to requested target,74783038,0,0,3
+Uploading the nested json data in mysql Database using pandas,74783036,0,0,4
 Firebase Ingress vs Egress,74783032,0,0,4
-avoid blank line when reading names from .txt into python list,74783029,0,0,5
+avoid blank line when reading names from .txt into python list,74783029,0,0,11
 "Strugguling to make a kivy application that add, sub, multiply, divide two input when a checkbox is active. Can somebody help me?",74783024,0,0,4
-"Does not display the ""Send Later"" button",74783023,0,0,2
-How do I count the amount of times a user was redirected to a page?,74783021,0,0,4
-I am looking for city wise map,74783019,0,0,4
-Is there the way took Angular Mateial component scss style. For example datepicker's?,74783016,-1,0,3
+"Does not display the ""Send Later"" button",74783023,0,0,6
+How do I count the amount of times a user was redirected to a page?,74783021,0,0,10
+I am looking for city wise map,74783019,0,0,6
+Is there the way took Angular Mateial component scss style. For example datepicker's?,74783016,-1,0,6
 Power BI - How do I use calculated values from various tables and store them in a separate table,74783015,0,0,2
-Using fetch data as array in Vue3,74783014,0,0,2
+Using fetch data as array in Vue3,74783014,0,0,3
 MUI Modal/Popover/Drawer don't allow Usersnap to register input,74783013,0,0,4
 Does Argo CD support for AWS Cloudformation Continues delivery?,74783012,0,0,2
-How to get all inputs value in react,74783011,0,0,8
+How to get all inputs value in react,74783011,0,0,15
 ERR_TOO_MANY_REDIRECTS After installing certbot on nginx / Ubuntu 20.04,74783010,0,0,4
-how to watch the value change in Typescript,74783006,-2,0,10
-nss_ldap failed to bind to LDAP server,74783004,0,0,5
-awk script to find the average of a particular row,74783002,0,0,5
-Python confusion matrix plot in percentage format rows to sum up to 100%,74782997,0,0,4
-Is there a possibility of Multiple Graphs in PHP using Google Vizualization,74782995,0,0,8
-Sending Mail From Authentification Microsoft,74782994,0,0,3
-Regex Match applies correctly but re.sub does not perform its task,74782993,-1,0,9
-Creating an INNER JOIN from 2 tables IF condition is met,74782991,0,0,9
-Patch method in a package that is not exposed in __init__.py,74782990,0,0,13
-Expected output from the autoencoder layer?,74782989,0,0,5
-Why are half my uniforms missing when initializing a compute shader using python modernGL?,74782988,0,0,5
+how to watch the value change in Typescript,74783006,-3,1,11
+nss_ldap failed to bind to LDAP server,74783004,0,0,7
+awk script to find the average of a particular row,74783002,0,1,10
+Python confusion matrix plot in percentage format rows to sum up to 100%,74782997,1,0,5
+Is there a possibility of Multiple Graphs in PHP using Google Vizualization,74782995,0,0,12
+Sending Mail From Authentification Microsoft,74782994,0,0,4
+Regex Match applies correctly but re.sub does not perform its task,74782993,-1,0,10
+Creating an INNER JOIN from 2 tables IF condition is met,74782991,0,0,11
+Patch method in a package that is not exposed in __init__.py,74782990,0,0,14
+Expected output from the autoencoder layer?,74782989,0,0,6
+Why are half my uniforms missing when initializing a compute shader using python modernGL?,74782988,0,0,6
 "join two sf objects, but got not the same observations as the first dataframe",74782987,0,0,8
-React Native Nested Navigation NOT working without error on log screen,74782986,0,0,10
-Issues in uploading files to digital ocean spaces from laravel,74782984,0,0,4
-"How to resolve expected string or bytes-like object, got 'dict_node' template.yaml:1:1",74782980,0,0,8
+React Native Nested Navigation NOT working without error on log screen,74782986,0,0,11
+Issues in uploading files to digital ocean spaces from laravel,74782984,0,0,6
+"How to resolve expected string or bytes-like object, got 'dict_node' template.yaml:1:1",74782980,0,0,10
 Trying to use cloud storage on Db2 external tables,74782978,0,0,5
-How to send Spring Bean serialized as the body of a REST call using Web Client in a Java Spring boot application?,74782975,0,0,8
-CloudFormation passing variables from one stack to another,74782972,0,0,5
-Blend colors naturally in an image using opencv,74782971,0,0,5
+How to send Spring Bean serialized as the body of a REST call using Web Client in a Java Spring boot application?,74782975,0,0,9
+CloudFormation passing variables from one stack to another,74782972,0,0,6
+Blend colors naturally in an image using opencv,74782971,0,0,6
 How to prove my data value A and B are equal,74782970,-1,0,5
 Spring cloud contract producer jar creation,74782967,0,0,5
-How do I move a linked form with its spreadsheet to a different folder using apps script,74782966,0,0,4
+How do I move a linked form with its spreadsheet to a different folder using apps script,74782966,0,0,5
 jsPDF - addHTML() to center of pdf page?,74782964,0,0,5
 JSX element type 'QrReader' does not have any construct or call signatures,74782961,0,1,8
-Paypal REST API - Payment capture response missing exchange rate,74782954,0,0,6
-How to fill clipped objects with IFC.js?,74782950,0,0,11
+Paypal REST API - Payment capture response missing exchange rate,74782954,0,0,7
+How to fill clipped objects with IFC.js?,74782950,0,0,12
 Oracle Cloud Infrastructure Ubuntu image can't open port,74782948,0,0,5
-How to create a wind rose in R,74782947,0,0,13
+How to create a wind rose in R,74782947,0,0,14
 New API call on navigation through client side,74782946,0,0,3
 "For loop takes hours, what is a faster alternative?",74782944,0,0,14
 Environment variable expansion in GitHub Workflows,74782942,1,0,3
-Multiple steps for spotless format java error while gradle build,74782940,0,1,8
-Keycloak registration with custom attribute,74782939,0,0,4
-Are there any parts where 'react-native-mmkv' and 'redux' should be viewed differently? for react-native,74782937,0,0,6
+Multiple steps for spotless format java error while gradle build,74782940,0,1,10
+Keycloak registration with custom attribute,74782939,0,0,5
+Are there any parts where 'react-native-mmkv' and 'redux' should be viewed differently? for react-native,74782937,0,0,7
 How to get static part of a url? [closed],74782932,-3,2,22
 "Javascript won't accept "":"" in .json file's key [duplicate]",74782931,-2,0,14
 reorganize array of objects so that it is displayed in table (javascript),74782930,1,0,13
-CopyMemory causes MS ACCESS crash - attempt to retrieve reference to IRibbonUI ribbon (VBA),74782929,0,0,6
+CopyMemory causes MS ACCESS crash - attempt to retrieve reference to IRibbonUI ribbon (VBA),74782929,0,0,8
 Lock Google Sheets cells/range after condition is met,74782927,0,0,3
-Add arrow to rect to make it a label for horizontal bar chart d3.js,74782926,0,0,5
+Add arrow to rect to make it a label for horizontal bar chart d3.js,74782926,0,0,6
 select color attributes via python in blender,74782925,0,0,3
 Has anyone tried the beta version of the Edwiser RemUI Moodle theme or the demo? What are your thoughts?,74782924,-2,0,7
-How to do the calculation of Information criterion with help of MAE or MSE?,74782923,-1,0,10
+How to do the calculation of Information criterion with help of MAE or MSE?,74782923,-1,0,11
 EC2 instance has SQL installed,74782922,0,0,10
-SqlException: Execution Timeout Expired. The timeout period elapsed prior to completion of the operation or the server is not responding,74782921,-1,0,9
-Java Two dimensional Arrays,74782920,-3,0,19
+Java Two dimensional Arrays,74782920,-3,0,20
 show only one Leaflet Marker with Wordpress PHP,74782914,0,0,6
 how to show in between ids and only id when status is matched by using perl cgi and mysql?,74782910,0,0,12
-Jenkins ci-cd pipeline,74782909,-1,0,11
+Jenkins ci-cd pipeline,74782909,-1,0,12
 How to insert data in mongo db using pymongo?,74782907,0,0,9
-IIS with my Blazor Webassembly ASP hosted (api calls) application throws Json Reader Exception trying to retrieve data from SQL Server,74782905,0,0,6
+IIS with my Blazor Webassembly ASP hosted (api calls) application throws Json Reader Exception trying to retrieve data from SQL Server,74782905,0,0,8
 Eclipse (CDT) not running Builder,74782902,0,0,2
 How check if file exists in shell script by ignoring case sensitivity?,74782901,0,0,6
-Video briefly jumps around when page is loaded using Safari,74782899,0,0,6
-GCP Workload Identity (WLI) in JFrog Artifactory,74782898,0,0,6
+Video briefly jumps around when page is loaded using Safari,74782899,0,0,7
+GCP Workload Identity (WLI) in JFrog Artifactory,74782898,0,0,7
 Winforms User Control that implements RUI IViewFor leads to an Error in VS Designer,74782896,0,0,5
-How Can I Send HTML string to Backend?,74782894,0,1,19
+How Can I Send HTML string to Backend?,74782894,0,1,20
 Unable to Login Woocommerce website while in iframe,74782893,0,0,6
-How to read json file and take in excel using vba,74782891,0,0,9
-US IP address to my Google Cloud functions located in Asia,74782888,0,0,5
+How to read json file and take in excel using vba,74782891,0,0,10
+US IP address to my Google Cloud functions located in Asia,74782888,0,0,6
 Is writing to database done by driver or executor in spark cluster,74782885,0,0,7
-Cant seem to understand the passportjs callback,74782884,0,0,2
+Cant seem to understand the passportjs callback,74782884,0,0,3
 Fortigate firewall can not detect linux os Pcs,74782883,0,0,2
-Reactjs Router version 5,74782882,0,0,7
-MS Word VBA - Hide ActiveX Command Button,74782878,0,0,4
-What's the best way to create a class with private functions? [closed],74782876,-2,0,27
-Remove or edit anonymous function in WP hooks,74782875,0,0,7
-Is it possible to open mutiple Flask service by using subprocess?,74782873,0,0,12
-Next pointer of leaf not working outside of insert in a BST,74782870,0,0,16
-"Credentials Provider session always return null with create-t3-stack (NextJS, NextAuth)",74782868,0,0,6
-"SQL recursive - sort and group data depending on level and its parents, then display results in JSON format",74782865,0,0,5
-Fancy indexing in numpy,74782862,0,0,13
-"How to convert the multiple number of weeks( 1st jan = 1, 25th dec = 52) number into start date & end date to filter jsp report java 7?",74782857,0,0,14
-EF Core 6 get the line with the max date by 2 fields,74782856,0,0,12
-Error displaying time data type in sql server,74782854,-2,0,8
-How to correctly interrupt boost::asio::read on a boost::asio::serial_port under Linux?,74782853,0,0,9
-How to use exceptionExpression in Spring Retryable?,74782851,0,0,10
-Could not connect to any of ['/tmp/pyosqsockndnbir6z'] in osquery-python,74782849,0,0,5
-"My ""if statement condition"" is nor working because of the Logical Operator that I made [duplicate]",74782848,-3,0,25
-How to focus visibilty to specific time set in lightweight charts?,74782845,0,0,7
-Can Cargo run external tools before compilation?,74782841,0,2,15
-How Can I get the coordinates of the vertices of all the GameObjects with an specific Tag and save them in a Json file?,74782840,0,0,8
-DEBUG env key not set and still logs exploding in terminal of every package - expo sdk 47,74782839,0,0,5
-How to pass string in rest api of php GET method,74782837,0,0,13
-event solver ivp python,74782835,0,1,18
-Vmmem using all RAM,74782833,0,0,10
-List index out of range error for DS1820 sensor on raspberry pi,74782831,0,0,9

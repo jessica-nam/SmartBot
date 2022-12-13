@@ -57,7 +57,7 @@ def scrape_one_question_page(page=1):
     # Find link
     answers_link_list = soup.find_all("a", class_="s-link")
 
-    # Remove the first two links which are javascript:void(0)
+    # Remove the first three links which are javascript:void(0)
     answers_link_list = answers_link_list[3:]
 
     # Remove last link which is https://stackexchange.com/questions?tab=hot
