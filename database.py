@@ -20,10 +20,9 @@ TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)
 # Pre set page amount
 PAGE_LIMIT = 2 # if 3 it actually grabs 10 pages idky
 
-
 def build_url(base_url=URL1, tag = TAG, tab=TAB, page=PAGE_LIMIT):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
-
+    print(f"{base_url}{tag}?tab={tab}&page={page}")
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
 def build_answer_url(base_url=URL2, postID=""):
@@ -119,14 +118,11 @@ def scrape_question_pages(page_limit):
     return questions
 
 
-def export_data():
+def export_data(pages):
     """ Export dictionary data into questions.csv file """
 
-    ### If you only want data from one page ###
-    data = scrape_one_question_page(PAGE_LIMIT)
-
-    ### If you want data from multiple pages ###
-    # data = scrape_question_pages(PAGE_LIMIT)
+    ### Data from multiple pages ###
+    data = scrape_question_pages(pages)
 
     with open("questions.csv", "w") as f:
         fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
@@ -152,6 +148,6 @@ def scrape_one_answer_page(postID):
     
 
 if __name__ == "__main__":
-
-    export_data()
+    pages = 5
+    export_data(pages)
 
