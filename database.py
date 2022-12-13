@@ -14,11 +14,11 @@ URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = ""  # can be "python", "recursion". etc.
+TAG = "python"  # can be "python", "recursion". etc.
 TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
 
 # Pre set page amount
-PAGE_LIMIT = 3 # if 3 it actually grabs 10 pages idky
+PAGE_LIMIT = 2 # if 3 it actually grabs 10 pages idky
 
 
 def build_url(base_url=URL1, tag = TAG, tab=TAB, page=PAGE_LIMIT):
@@ -31,7 +31,7 @@ def build_answer_url(base_url=URL2, postID=""):
         
     return f"{base_url}{postID}"
 
-def scrape_one_question_page(page=1):
+def scrape_one_question_page(page):
     """ Retrives newest question, postID, votes, answer, view count from StackOverflow by scraping one page 
         NOTE TO SELF: "answers" derived from this function only indicates answer count """
 
@@ -123,10 +123,10 @@ def export_data():
     """ Export dictionary data into questions.csv file """
 
     ### If you only want data from one page ###
-    # data = scrape_one_question_page(PAGE_LIMIT)
+    data = scrape_one_question_page(PAGE_LIMIT)
 
     ### If you want data from multiple pages ###
-    data = scrape_question_pages(PAGE_LIMIT)
+    # data = scrape_question_pages(PAGE_LIMIT)
 
     with open("questions.csv", "w") as f:
         fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
@@ -153,13 +153,5 @@ def scrape_one_answer_page(postID):
 
 if __name__ == "__main__":
 
-    L = scrape_one_question_page(2)
-    print(L)
-    print(L[0]["postID"])
-    print(L[0]["question"])
-
-    print(build_answer_url(URL1, L[0]["postID"]))
-    # scrape_one_answer_page(L[1]["postID"])
-    #scrape_one_answer_page(36730372, "extract-the-text-from-p-within-div-with-beautifulsoup")
     export_data()
 

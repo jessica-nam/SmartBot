@@ -1,151 +1,51 @@
 question,postID,votes,answers,views
-Why is processing a sorted array faster than processing an unsorted array?,11227809,26762,27,1.8m
-How do I undo the most recent local commits in Git?,927358,25141,102,12.1m
-How do I delete a Git branch locally and remotely?,2003505,19781,41,10.6m
-What is the difference between 'git pull' and 'git fetch'?,292357,13463,37,3.3m
-"What does the ""yield"" keyword do?",231767,12423,51,3.1m
-Which JSON content type do I use?,477816,11335,38,3.6m
-How can I remove a specific item from an array?,5767325,11156,140,10.9m
-How do I rename a local Git branch?,6591213,10962,38,4.7m
-How do I undo 'git add' before commit?,348170,10789,38,4.7m
-"What is the ""-->"" operator in C++?",1642028,9926,29,958k
-Can comments be used in JSON?,244777,9188,57,3.3m
-What and where are the stack and heap?,79923,9174,31,1.8m
-"How do I force ""git pull"" to overwrite local files?",1125968,9076,49,7.2m
-Why does HTML think “chucknorris” is a color?,8318911,8560,9,727k
-How do I check if an element is hidden in jQuery?,178325,8498,65,3.1m
-"What does ""use strict"" do in JavaScript, and what is the reasoning behind it?",1335851,8323,30,1.2m
-How do I check out a remote Git branch?,1783405,8188,42,7.5m
-"What does if __name__ == ""__main__"": do?",419163,7850,43,4.3m
-How do I remove local (untracked) files from the current Git working tree?,61212,7839,41,2.9m
-How do I redirect to another webpage?,503093,7705,58,7.5m
-"How to modify existing, unpushed commit messages?",179123,7651,27,3.3m
-How do JavaScript closures work?,111102,7621,86,1.6m
-How do I revert a Git repository to a previous commit?,4114095,7615,41,9.3m
-"Is Java ""pass-by-reference"" or ""pass-by-value""?",40480,7581,92,2.5m
-Does Python have a ternary conditional operator?,394809,7573,30,2.7m
-"How do I make Git forget about a file that was tracked, but is now in .gitignore?",1274057,7571,34,2.0m
-var functionName = function() {} vs function functionName() {},336859,7512,41,1.2m
-Why is subtracting these two times (in 1927) giving a strange result?,6841333,7432,10,776k
-How to check whether a string contains a substring in JavaScript?,1789945,7412,3,7.5m
-What is the difference between String and string in C#?,7074,7371,65,1.3m
-How do I remove a property from a JavaScript object?,208105,7227,35,2.9m
-What are metaclasses in Python?,100003,7057,23,1.1m
-How to find all files containing specific text (string) on Linux?,16956810,7020,53,9.6m
-How do I check whether a file exists without exceptions?,82831,6850,40,5.0m
-How do I merge two dictionaries in a single expression?,38987,6548,43,2.9m
-How do I return the response from an asynchronous call?,14220321,6502,44,2.0m
-"What is the difference between px, dip, dp, and sp?",2025282,6279,32,1.4m
-Move the most recent commit(s) to a new branch with Git,1628563,6174,21,1.5m
-What is the difference between POST and PUT in HTTP?,630453,6143,40,3.1m
-How do I include a JavaScript file in another JavaScript file?,950087,6127,70,4.1m
-"What is the difference between ""let"" and ""var""?",762011,5996,39,2.1m
-How to disable text selection highlighting,826782,5955,45,2.6m
-How do I discard unstaged changes in Git?,52704,5943,40,3.7m
-How do I get the directory where a Bash script is located from within the script itself?,59895,5918,75,2.3m
-How do I execute a program or call a system command?,89228,5861,64,4.2m
-How do I change the URI (URL) for a remote Git repository?,2432764,5683,32,3.2m
-Which equals operator (== vs ===) should be used in JavaScript comparisons?,359494,5651,48,2.1m
-What is the maximum length of a URL in different browsers?,417142,5519,17,1.6m
-The definitive guide to form-based website authentication [closed],549,5519,11,662k
-Loop over an array in JavaScript,9329446,5510,40,5.1m
-Why is processing a sorted array faster than processing an unsorted array?,11227809,26762,27,1.8m
-How do I undo the most recent local commits in Git?,927358,25141,102,12.1m
-How do I delete a Git branch locally and remotely?,2003505,19781,41,10.6m
-What is the difference between 'git pull' and 'git fetch'?,292357,13463,37,3.3m
-"What does the ""yield"" keyword do?",231767,12423,51,3.1m
-Which JSON content type do I use?,477816,11335,38,3.6m
-How can I remove a specific item from an array?,5767325,11156,140,10.9m
-How do I rename a local Git branch?,6591213,10962,38,4.7m
-How do I undo 'git add' before commit?,348170,10789,38,4.7m
-"What is the ""-->"" operator in C++?",1642028,9926,29,958k
-Can comments be used in JSON?,244777,9188,57,3.3m
-What and where are the stack and heap?,79923,9174,31,1.8m
-"How do I force ""git pull"" to overwrite local files?",1125968,9076,49,7.2m
-Why does HTML think “chucknorris” is a color?,8318911,8560,9,727k
-How do I check if an element is hidden in jQuery?,178325,8498,65,3.1m
-"What does ""use strict"" do in JavaScript, and what is the reasoning behind it?",1335851,8323,30,1.2m
-How do I check out a remote Git branch?,1783405,8188,42,7.5m
-"What does if __name__ == ""__main__"": do?",419163,7850,43,4.3m
-How do I remove local (untracked) files from the current Git working tree?,61212,7839,41,2.9m
-How do I redirect to another webpage?,503093,7705,58,7.5m
-"How to modify existing, unpushed commit messages?",179123,7651,27,3.3m
-How do JavaScript closures work?,111102,7621,86,1.6m
-How do I revert a Git repository to a previous commit?,4114095,7615,41,9.3m
-"Is Java ""pass-by-reference"" or ""pass-by-value""?",40480,7581,92,2.5m
-Does Python have a ternary conditional operator?,394809,7573,30,2.7m
-"How do I make Git forget about a file that was tracked, but is now in .gitignore?",1274057,7571,34,2.0m
-var functionName = function() {} vs function functionName() {},336859,7512,41,1.2m
-Why is subtracting these two times (in 1927) giving a strange result?,6841333,7432,10,776k
-How to check whether a string contains a substring in JavaScript?,1789945,7412,3,7.5m
-What is the difference between String and string in C#?,7074,7371,65,1.3m
-How do I remove a property from a JavaScript object?,208105,7227,35,2.9m
-What are metaclasses in Python?,100003,7057,23,1.1m
-How to find all files containing specific text (string) on Linux?,16956810,7020,53,9.6m
-How do I check whether a file exists without exceptions?,82831,6850,40,5.0m
-How do I merge two dictionaries in a single expression?,38987,6548,43,2.9m
-How do I return the response from an asynchronous call?,14220321,6502,44,2.0m
-"What is the difference between px, dip, dp, and sp?",2025282,6279,32,1.4m
-Move the most recent commit(s) to a new branch with Git,1628563,6174,21,1.5m
-What is the difference between POST and PUT in HTTP?,630453,6143,40,3.1m
-How do I include a JavaScript file in another JavaScript file?,950087,6127,70,4.1m
-"What is the difference between ""let"" and ""var""?",762011,5996,39,2.1m
-How to disable text selection highlighting,826782,5955,45,2.6m
-How do I discard unstaged changes in Git?,52704,5943,40,3.7m
-How do I get the directory where a Bash script is located from within the script itself?,59895,5918,75,2.3m
-How do I execute a program or call a system command?,89228,5861,64,4.2m
-How do I change the URI (URL) for a remote Git repository?,2432764,5683,32,3.2m
-Which equals operator (== vs ===) should be used in JavaScript comparisons?,359494,5651,48,2.1m
-What is the maximum length of a URL in different browsers?,417142,5519,17,1.6m
-The definitive guide to form-based website authentication [closed],549,5519,11,662k
-Loop over an array in JavaScript,9329446,5510,40,5.1m
-Why is processing a sorted array faster than processing an unsorted array?,11227809,26762,27,1.8m
-How do I undo the most recent local commits in Git?,927358,25141,102,12.1m
-How do I delete a Git branch locally and remotely?,2003505,19781,41,10.6m
-What is the difference between 'git pull' and 'git fetch'?,292357,13463,37,3.3m
-"What does the ""yield"" keyword do?",231767,12423,51,3.1m
-Which JSON content type do I use?,477816,11335,38,3.6m
-How can I remove a specific item from an array?,5767325,11156,140,10.9m
-How do I rename a local Git branch?,6591213,10962,38,4.7m
-How do I undo 'git add' before commit?,348170,10789,38,4.7m
-"What is the ""-->"" operator in C++?",1642028,9926,29,958k
-Can comments be used in JSON?,244777,9188,57,3.3m
-What and where are the stack and heap?,79923,9174,31,1.8m
-"How do I force ""git pull"" to overwrite local files?",1125968,9076,49,7.2m
-Why does HTML think “chucknorris” is a color?,8318911,8560,9,727k
-How do I check if an element is hidden in jQuery?,178325,8498,65,3.1m
-"What does ""use strict"" do in JavaScript, and what is the reasoning behind it?",1335851,8323,30,1.2m
-How do I check out a remote Git branch?,1783405,8188,42,7.5m
-"What does if __name__ == ""__main__"": do?",419163,7850,43,4.3m
-How do I remove local (untracked) files from the current Git working tree?,61212,7839,41,2.9m
-How do I redirect to another webpage?,503093,7705,58,7.5m
-"How to modify existing, unpushed commit messages?",179123,7651,27,3.3m
-How do JavaScript closures work?,111102,7621,86,1.6m
-How do I revert a Git repository to a previous commit?,4114095,7615,41,9.3m
-"Is Java ""pass-by-reference"" or ""pass-by-value""?",40480,7581,92,2.5m
-Does Python have a ternary conditional operator?,394809,7573,30,2.7m
-"How do I make Git forget about a file that was tracked, but is now in .gitignore?",1274057,7571,34,2.0m
-var functionName = function() {} vs function functionName() {},336859,7512,41,1.2m
-Why is subtracting these two times (in 1927) giving a strange result?,6841333,7432,10,776k
-How to check whether a string contains a substring in JavaScript?,1789945,7412,3,7.5m
-What is the difference between String and string in C#?,7074,7371,65,1.3m
-How do I remove a property from a JavaScript object?,208105,7227,35,2.9m
-What are metaclasses in Python?,100003,7057,23,1.1m
-How to find all files containing specific text (string) on Linux?,16956810,7020,53,9.6m
-How do I check whether a file exists without exceptions?,82831,6850,40,5.0m
-How do I merge two dictionaries in a single expression?,38987,6548,43,2.9m
-How do I return the response from an asynchronous call?,14220321,6502,44,2.0m
-"What is the difference between px, dip, dp, and sp?",2025282,6279,32,1.4m
-Move the most recent commit(s) to a new branch with Git,1628563,6174,21,1.5m
-What is the difference between POST and PUT in HTTP?,630453,6143,40,3.1m
-How do I include a JavaScript file in another JavaScript file?,950087,6127,70,4.1m
-"What is the difference between ""let"" and ""var""?",762011,5996,39,2.1m
-How to disable text selection highlighting,826782,5955,45,2.6m
-How do I discard unstaged changes in Git?,52704,5943,40,3.7m
-How do I get the directory where a Bash script is located from within the script itself?,59895,5918,75,2.3m
-How do I execute a program or call a system command?,89228,5861,64,4.2m
-How do I change the URI (URL) for a remote Git repository?,2432764,5683,32,3.2m
-Which equals operator (== vs ===) should be used in JavaScript comparisons?,359494,5651,48,2.1m
-What is the maximum length of a URL in different browsers?,417142,5519,17,1.6m
-The definitive guide to form-based website authentication [closed],549,5519,11,662k
-Loop over an array in JavaScript,9329446,5510,40,5.1m
+How do I get the last element of a list?,930397,2654,25,2.9m
+How do I sort a list of dictionaries by a value of the dictionary?,72899,2623,19,1.2m
+How to upgrade all Python packages with pip?,2720014,2604,54,1.7m
+How do I get a substring of a string in Python?,663171,2572,16,3.6m
+How do I lowercase a string in Python?,6797984,2472,5,3.0m
+Class (static) variables and methods,68645,2445,27,1.6m
+How to print without a newline or space,493386,2326,25,2.4m
+Calling a function of a module by using its name (a string),3061,2311,18,1.0m
+How to leave/exit/deactivate a Python virtualenv,990754,2307,14,1.8m
+Importing files from different folder,4383571,2289,36,2.9m
+How to check if an object has an attribute?,610883,2286,16,1.3m
+How can I randomly select an item from a list?,306400,2264,17,2.0m
+How do I print curly-brace characters in a string while using .format?,5466451,2248,23,846k
+Limiting floats to two decimal points,455612,2229,34,4.9m
+How do I get the number of elements in a list (length of a list) in Python?,1712227,2213,12,3.7m
+Why is reading lines from stdin much slower in C++ than Python?,9371238,2127,10,303k
+How to remove an element from a list by index,627435,2116,18,3.7m
+Is there a way to run Python on Android?,101754,2085,23,734k
+Determine the type of an object? [duplicate],2225038,2079,15,2.1m
+How to determine a Python variable's type?,402504,2068,21,3.6m
+How do I count the occurrences of a list item?,2600191,2063,29,2.7m
+Delete an element from a dictionary,5844672,2041,18,2.5m
+Delete a column from a Pandas DataFrame,13411544,2040,20,3.3m
+Why is it string.join(list) instead of list.join(string)?,493819,2029,11,1.4m
+How to read a file line-by-line into a list?,3277503,2025,28,4.6m
+How do I pad a string with zeroes?,339007,1988,19,1.4m
+How to check if the string is empty?,9573244,1984,25,2.8m
+How do I remove a trailing newline?,275018,1966,27,2.3m
+How do I append to a file?,4706499,1960,13,2.0m
+Static methods in Python?,735975,1959,12,1.2m
+How do I measure elapsed time in Python?,7370801,1909,41,2.4m
+How do I check if a string represents a number (float or int)?,354038,1889,39,1.6m
+"What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv, etc?",41573587,1876,7,496k
+Getting the class name of an instance,510972,1862,11,1.3m
+Meaning of @classmethod and @staticmethod for beginner [duplicate],12179271,1848,12,748k
+How do I split the definition of a long string over multiple lines?,10660435,1846,30,1.8m
+Generate random integers between 0 and 9,3996904,1795,22,2.6m
+Installing specific package version with pip,5226311,1795,12,2.2m
+How to prettyprint a JSON file?,12943819,1756,16,2.0m
+What's the canonical way to check for type in Python?,152580,1740,13,1.3m
+Extracting extension from filename in Python,541390,1724,31,1.4m
+Replacements for switch statement in Python?,60208,1717,44,2.2m
+How do I read from stdin?,1450393,1714,24,2.1m
+What is the meaning of single and double underscore before an object name?,1301346,1711,18,661k
+How do I get the row count of a Pandas DataFrame?,15943769,1702,17,3.6m
+Proper way to declare custom exceptions in modern Python?,1319615,1696,15,948k
+fatal error: Python.h: No such file or directory,21530577,1694,35,1.5m
+How do I print to stderr in Python?,5574702,1685,17,1.2m
+How do I install pip on macOS or OS X?,17271319,1672,21,2.8m
+Random string generation with upper case letters and digits,2257441,1672,36,1.3m
