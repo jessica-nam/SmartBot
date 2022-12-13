@@ -2,27 +2,26 @@ from bs4 import BeautifulSoup
 from requests.compat import urljoin
 import requests
 import csv
+import re
 
-# Page we want to scrape (Questions page from stackoverflow)
-URL = "https://stackoverflow.com/questions"
+# Page we want to scrape (Questions page from stackoverflow - filtered to tags)
+URL = "https://stackoverflow.com/questions/tagged/"
 PAGE_LIMIT = 1
+LANGUAGE = "python"
+TAB = "votes" # tab can be votes, newest, recent activity, most frequent - later feature
 
 
-def build_url(base_url=URL, tab="newest", page=1):
+def build_url(base_url=URL, tab=TAB, page=1):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page
-        Example: https://stackoverflow.com/questions?tab=newest&page=1"""
+        Example: https://stackoverflow.com/questions/tagged/python?tab=votes&page=1"""
 
-    return f"{base_url}?tab={tab}&page={page}"
+    return f"{base_url}{LANGUAGE}?tab={tab}&page={page}"
 
 def build_answer_url(base_url=URL, postID=""):
     """ Builds StackOverflow answer URL format which takes in two parameters: postID and question
         Example: https://stackoverflow.com/questions/74701549/is-there-any-documentation-on-the-typescript-type-spread-behavior"""
-    print(f"https://stackoverflow.com/questions{postID}/{question}")
     return f"https://stackoverflow.com/questions/{postID}"
-    # urljoin(URL, '/{postID}')
-    # url = urljoin(URL, '/{question}')
-    # print(url)
-    # return url
+
 
 def scrape_one_question_page(page=1):
     """ Retrives newest question and answers from StackOverflow by scraping one page 
@@ -56,6 +55,7 @@ def scrape_one_question_page(page=1):
 
     # Find link
     answers_link_list = soup.find_all("a", class_="s-link")
+    
 
     # Remove the first three links which are javascript:void(0)
     answers_link_list = answers_link_list[3:]
@@ -73,7 +73,13 @@ def scrape_one_question_page(page=1):
 
 
         link = y['href']
-        post_ID = link[11:19]
+        post_ID = link[10:19]
+        post_ID = str(re.findall('/([^"]*)/', post_ID))
+        post_ID = post_ID[1:-1]
+        post_ID = post_ID.replace("'", "")
+        print(post_ID)
+        print(type(post_ID))
+        #post_ID = post_ID[:post_ID.index("/")]
         OnePageOutput.append(post_ID)
 
     
@@ -121,7 +127,7 @@ def scrape_question_pages(page_limit):
 
 def export_data():
     # data = scrape_one_question_page(2)
-    data = scrape_question_pages(2)
+    data = scrape_question_pages(100)
     with open("questions.csv", "w") as f:
         fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -130,17 +136,17 @@ def export_data():
             writer.writerow(i)
         print("Done writing")
 
-# def scrape_one_answer_page(postID, question):
-#     """ Retrives the answer from the question page by the postID """
+def scrape_one_answer_page(postID):
+    """ Retrives the answer from the question page by the postID """
 
-#     response = requests.get(build_answer_url(postID, question))
-#     soup = BeautifulSoup(response.text, features="html.parser")
+    response = requests.get(build_answer_url(URL, postID))
+    soup = BeautifulSoup(response.text, features="html.parser")
 
-#     answers_list = soup.find_all(
-#         "div", class_="s-prose js-post-body")
+    answers_list = soup.find_all(
+        "div", class_="s-prose js-post-body")
 
-#     for x in answers_list:
-#         print(x.find('p').text)
+    for x in answers_list:
+        print(x.find('p').text)
 
     
     
@@ -149,10 +155,11 @@ if __name__ == "__main__":
 
     from pprint import pprint # For readability
     L = scrape_one_question_page(1)
-    print(L[1]["postID"])
-    print(L[1]["question"])
+    print(L[0]["postID"])
+    print(L[0]["question"])
 
-    #print(build_answer_url())
+    print(build_answer_url(URL, L[0]["postID"]))
+    # scrape_one_answer_page(L[1]["postID"])
     #scrape_one_answer_page(36730372, "extract-the-text-from-p-within-div-with-beautifulsoup")
     export_data()
 
