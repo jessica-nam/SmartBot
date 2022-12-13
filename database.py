@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from requests.compat import urljoin
 import requests
 import csv
 
@@ -12,6 +13,16 @@ def build_url(base_url=URL, tab="newest", page=1):
         Example: https://stackoverflow.com/questions?tab=newest&page=1"""
 
     return f"{base_url}?tab={tab}&page={page}"
+
+def build_answer_url(base_url=URL, postID=""):
+    """ Builds StackOverflow answer URL format which takes in two parameters: postID and question
+        Example: https://stackoverflow.com/questions/74701549/is-there-any-documentation-on-the-typescript-type-spread-behavior"""
+    print(f"https://stackoverflow.com/questions{postID}/{question}")
+    return f"https://stackoverflow.com/questions/{postID}"
+    # urljoin(URL, '/{postID}')
+    # url = urljoin(URL, '/{question}')
+    # print(url)
+    # return url
 
 def scrape_one_question_page(page=1):
     """ Retrives newest question and answers from StackOverflow by scraping one page 
@@ -47,9 +58,9 @@ def scrape_one_question_page(page=1):
     answers_link_list = soup.find_all("a", class_="s-link")
 
     # Remove the first two links which are javascript:void(0)
-    answers_link_list = answers_link_list[2:]
+    answers_link_list = answers_link_list[3:]
 
-    #Remove last link which is https://stackexchange.com/questions?tab=hot
+    # Remove last link which is https://stackexchange.com/questions?tab=hot
     answers_link_list = answers_link_list[:-1]
 
     # (Question,Vote,Answer,View)
@@ -84,6 +95,11 @@ def scrape_one_question_page(page=1):
 
         question, postID, vote, answer, view = [str(e) for e in i]
 
+        # if answer > 0 and vote > 0: # Good answer
+        #     pass
+        # elif answer > 0: # Okay answer
+        #     pass
+
         QuestionPage.append({
             "question": question,
             "postID": postID,
@@ -104,7 +120,8 @@ def scrape_question_pages(page_limit):
 
 
 def export_data():
-    data = scrape_one_question_page(2)
+    # data = scrape_one_question_page(2)
+    data = scrape_question_pages(2)
     with open("questions.csv", "w") as f:
         fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -113,8 +130,17 @@ def export_data():
             writer.writerow(i)
         print("Done writing")
 
-def scrape_one_answer_page(page=1):
-    """ Retrives the answer from the question page by the postID """
+# def scrape_one_answer_page(postID, question):
+#     """ Retrives the answer from the question page by the postID """
+
+#     response = requests.get(build_answer_url(postID, question))
+#     soup = BeautifulSoup(response.text, features="html.parser")
+
+#     answers_list = soup.find_all(
+#         "div", class_="s-prose js-post-body")
+
+#     for x in answers_list:
+#         print(x.find('p').text)
 
     
     
@@ -122,5 +148,11 @@ def scrape_one_answer_page(page=1):
 if __name__ == "__main__":
 
     from pprint import pprint # For readability
+    L = scrape_one_question_page(1)
+    print(L[1]["postID"])
+    print(L[1]["question"])
+
+    #print(build_answer_url())
+    #scrape_one_answer_page(36730372, "extract-the-text-from-p-within-div-with-beautifulsoup")
     export_data()
 

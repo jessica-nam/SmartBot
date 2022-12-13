@@ -1,51 +1,101 @@
 question,postID,votes,answers,views
-Android: (In work profile in Android Device)packageManager.queryIntentActivities returning empty list in targetSDKVersion 33,74702253,0,0,7
-How not to use CompletableFuture as a shared state with EventListener in Spring,74702250,1,0,9
-How to improve search faster inside json file?,74702247,0,0,10
-"ValueError: Columns must be same length as key in querycat.Categorize(df_merge_col, 'Keyword', min_lift=10, alg='apriori')",74702246,0,0,4
-geoserver as cascading wmts cache for os maps api is slow for some requests,74702245,0,0,3
-Sample MPU6050 inside Interrupt Service Routine,74702244,0,0,6
-Laravel9 Query using search is using all rows in table after filtering,74702240,0,0,6
-Azure Data Factory2's pagination rule (for HTTP API),74702237,0,0,7
-What would be the correct code in order to get the factorial of n?,74702236,0,3,13
-"How to write a Datadog monitor cardinality service to exclude AWS, GCP, and Azure services",74702234,0,0,4
-MSVC compiler generates ineffective code for unrolled loop with pointer comparison,74702233,0,0,8
-Automate Azure SSO AD integration with snowflake,74702232,1,0,9
-Jsonize Pandas Complex Times Series From Numpy Vector,74702230,0,1,8
-How can I create a secure application-database connection?,74702227,0,0,18
-My custom error page is not used when errors occur in the production environment,74702226,0,0,5
-Interfaces design best practices (separate interfaces vs inheritance),74702225,0,0,11
-How to separate functional logic and user interface when getting data,74702223,0,0,10
-A function that sums cell values by conditions in R,74702220,-1,0,15
-Can anyone help me in the solution of this diamond pattern [duplicate],74702216,-4,0,13
-is it possible to drop not exact duplicates?,74702213,0,0,17
-Angular Spring boot on AWS Fargate,74702212,0,1,12
-how to use zip efficiently to iterate parallelly in multiple lists,74702203,0,2,17
-Adding String Value Converted From YAML File To PowerShell Array As An Object,74702202,0,0,12
-"How to make an ""all application"" ""Clear Menu"" keyboard shortcut?",74702200,0,0,6
-How to download the media content like images/videos from a tweet url using tweepy in python,74702199,0,0,5
-react native expo resolutionStrategy,74702197,0,0,7
-You can't see the content ofthis report because you don't have permissions to the underlyingdataset?,74702195,0,0,8
-What is the order of rebalansing different consumers group in kafka?,74702194,0,0,7
-how to get value inside the array result in python?,74702193,0,1,20
-Dart Analysis Server client: couldn't create connection to server,74702192,0,0,7
-I want to collect existing excel files as different sheets in a single excel file,74702189,0,0,9
-Javafx Button Click to create new object,74702187,0,0,14
-Generic Function with Omit gives could be instantiated with an arbitrary type error,74702186,0,0,8
-how to remove blank screen after splash screen in yocto,74702185,0,0,2
-Setting up CI/CD pipeline for Nextjs13,74702183,0,0,6
-The plugin firebase_database requires a higher Android SDK version,74702182,0,0,9
-Angular tabView primeNG routing,74702181,0,0,7
-"MultiIndex: on 2nd level, drop first column from each column on 1st level [duplicate]",74702179,0,0,9
-"In C#, in visual studio , windows forms, How to change colour of a line with click of a button?",74702178,0,0,9
-How print tickets with nodejs?,74702176,0,0,9
-AWS RDS DbConnections monitoring - odd flat red line without much meaning,74702173,0,0,6
-Convert str from textEdit in to float,74702169,0,0,17
-How to inherit from one parent or another one (not both),74702168,0,0,11
-"How can I sort a vector<pair<pair<float, float>, unsigned int>> by the first float, and if there's a tie the second float?",74702166,0,0,21
-Call on data from an unnamed nested dictionary on Python,74702163,0,1,22
-"How to solve ""Could not find module ‘Data.List.Split’"" in GHCi?",74702158,0,0,8
-"Is there a dynamic way of concatenating values over an unknown number (i.e., a dynamic number) of columns in a dataframe?",74702157,0,1,16
-how to mock a lifecycle function afterNavigate() in svelte?,74702156,0,0,5
-502 bad gateway error pointing django model.py to other database,74702153,0,0,8
-Tensorflow - TFLITE,74702152,0,0,6
+Firebase Ingress vs Egress,74783032,0,0,4
+avoid blank line when reading names from .txt into python list,74783029,0,0,5
+"Strugguling to make a kivy application that add, sub, multiply, divide two input when a checkbox is active. Can somebody help me?",74783024,0,0,4
+"Does not display the ""Send Later"" button",74783023,0,0,2
+How do I count the amount of times a user was redirected to a page?,74783021,0,0,4
+I am looking for city wise map,74783019,0,0,4
+Is there the way took Angular Mateial component scss style. For example datepicker's?,74783016,-1,0,3
+Power BI - How do I use calculated values from various tables and store them in a separate table,74783015,0,0,2
+Using fetch data as array in Vue3,74783014,0,0,2
+MUI Modal/Popover/Drawer don't allow Usersnap to register input,74783013,0,0,4
+Does Argo CD support for AWS Cloudformation Continues delivery?,74783012,0,0,2
+How to get all inputs value in react,74783011,0,0,8
+ERR_TOO_MANY_REDIRECTS After installing certbot on nginx / Ubuntu 20.04,74783010,0,0,4
+how to watch the value change in Typescript,74783006,-2,0,10
+nss_ldap failed to bind to LDAP server,74783004,0,0,5
+awk script to find the average of a particular row,74783002,0,0,5
+Python confusion matrix plot in percentage format rows to sum up to 100%,74782997,0,0,4
+Is there a possibility of Multiple Graphs in PHP using Google Vizualization,74782995,0,0,8
+Sending Mail From Authentification Microsoft,74782994,0,0,3
+Regex Match applies correctly but re.sub does not perform its task,74782993,-1,0,9
+Creating an INNER JOIN from 2 tables IF condition is met,74782991,0,0,9
+Patch method in a package that is not exposed in __init__.py,74782990,0,0,13
+Expected output from the autoencoder layer?,74782989,0,0,5
+Why are half my uniforms missing when initializing a compute shader using python modernGL?,74782988,0,0,5
+"join two sf objects, but got not the same observations as the first dataframe",74782987,0,0,8
+React Native Nested Navigation NOT working without error on log screen,74782986,0,0,10
+Issues in uploading files to digital ocean spaces from laravel,74782984,0,0,4
+"How to resolve expected string or bytes-like object, got 'dict_node' template.yaml:1:1",74782980,0,0,8
+Trying to use cloud storage on Db2 external tables,74782978,0,0,5
+How to send Spring Bean serialized as the body of a REST call using Web Client in a Java Spring boot application?,74782975,0,0,8
+CloudFormation passing variables from one stack to another,74782972,0,0,5
+Blend colors naturally in an image using opencv,74782971,0,0,5
+How to prove my data value A and B are equal,74782970,-1,0,5
+Spring cloud contract producer jar creation,74782967,0,0,5
+How do I move a linked form with its spreadsheet to a different folder using apps script,74782966,0,0,4
+jsPDF - addHTML() to center of pdf page?,74782964,0,0,5
+JSX element type 'QrReader' does not have any construct or call signatures,74782961,0,1,8
+Paypal REST API - Payment capture response missing exchange rate,74782954,0,0,6
+How to fill clipped objects with IFC.js?,74782950,0,0,11
+Oracle Cloud Infrastructure Ubuntu image can't open port,74782948,0,0,5
+How to create a wind rose in R,74782947,0,0,13
+New API call on navigation through client side,74782946,0,0,3
+"For loop takes hours, what is a faster alternative?",74782944,0,0,14
+Environment variable expansion in GitHub Workflows,74782942,1,0,3
+Multiple steps for spotless format java error while gradle build,74782940,0,1,8
+Keycloak registration with custom attribute,74782939,0,0,4
+Are there any parts where 'react-native-mmkv' and 'redux' should be viewed differently? for react-native,74782937,0,0,6
+How to get static part of a url? [closed],74782932,-3,2,22
+"Javascript won't accept "":"" in .json file's key [duplicate]",74782931,-2,0,14
+reorganize array of objects so that it is displayed in table (javascript),74782930,1,0,13
+CopyMemory causes MS ACCESS crash - attempt to retrieve reference to IRibbonUI ribbon (VBA),74782929,0,0,6
+Lock Google Sheets cells/range after condition is met,74782927,0,0,3
+Add arrow to rect to make it a label for horizontal bar chart d3.js,74782926,0,0,5
+select color attributes via python in blender,74782925,0,0,3
+Has anyone tried the beta version of the Edwiser RemUI Moodle theme or the demo? What are your thoughts?,74782924,-2,0,7
+How to do the calculation of Information criterion with help of MAE or MSE?,74782923,-1,0,10
+EC2 instance has SQL installed,74782922,0,0,10
+SqlException: Execution Timeout Expired. The timeout period elapsed prior to completion of the operation or the server is not responding,74782921,-1,0,9
+Java Two dimensional Arrays,74782920,-3,0,19
+show only one Leaflet Marker with Wordpress PHP,74782914,0,0,6
+how to show in between ids and only id when status is matched by using perl cgi and mysql?,74782910,0,0,12
+Jenkins ci-cd pipeline,74782909,-1,0,11
+How to insert data in mongo db using pymongo?,74782907,0,0,9
+IIS with my Blazor Webassembly ASP hosted (api calls) application throws Json Reader Exception trying to retrieve data from SQL Server,74782905,0,0,6
+Eclipse (CDT) not running Builder,74782902,0,0,2
+How check if file exists in shell script by ignoring case sensitivity?,74782901,0,0,6
+Video briefly jumps around when page is loaded using Safari,74782899,0,0,6
+GCP Workload Identity (WLI) in JFrog Artifactory,74782898,0,0,6
+Winforms User Control that implements RUI IViewFor leads to an Error in VS Designer,74782896,0,0,5
+How Can I Send HTML string to Backend?,74782894,0,1,19
+Unable to Login Woocommerce website while in iframe,74782893,0,0,6
+How to read json file and take in excel using vba,74782891,0,0,9
+US IP address to my Google Cloud functions located in Asia,74782888,0,0,5
+Is writing to database done by driver or executor in spark cluster,74782885,0,0,7
+Cant seem to understand the passportjs callback,74782884,0,0,2
+Fortigate firewall can not detect linux os Pcs,74782883,0,0,2
+Reactjs Router version 5,74782882,0,0,7
+MS Word VBA - Hide ActiveX Command Button,74782878,0,0,4
+What's the best way to create a class with private functions? [closed],74782876,-2,0,27
+Remove or edit anonymous function in WP hooks,74782875,0,0,7
+Is it possible to open mutiple Flask service by using subprocess?,74782873,0,0,12
+Next pointer of leaf not working outside of insert in a BST,74782870,0,0,16
+"Credentials Provider session always return null with create-t3-stack (NextJS, NextAuth)",74782868,0,0,6
+"SQL recursive - sort and group data depending on level and its parents, then display results in JSON format",74782865,0,0,5
+Fancy indexing in numpy,74782862,0,0,13
+"How to convert the multiple number of weeks( 1st jan = 1, 25th dec = 52) number into start date & end date to filter jsp report java 7?",74782857,0,0,14
+EF Core 6 get the line with the max date by 2 fields,74782856,0,0,12
+Error displaying time data type in sql server,74782854,-2,0,8
+How to correctly interrupt boost::asio::read on a boost::asio::serial_port under Linux?,74782853,0,0,9
+How to use exceptionExpression in Spring Retryable?,74782851,0,0,10
+Could not connect to any of ['/tmp/pyosqsockndnbir6z'] in osquery-python,74782849,0,0,5
+"My ""if statement condition"" is nor working because of the Logical Operator that I made [duplicate]",74782848,-3,0,25
+How to focus visibilty to specific time set in lightweight charts?,74782845,0,0,7
+Can Cargo run external tools before compilation?,74782841,0,2,15
+How Can I get the coordinates of the vertices of all the GameObjects with an specific Tag and save them in a Json file?,74782840,0,0,8
+DEBUG env key not set and still logs exploding in terminal of every package - expo sdk 47,74782839,0,0,5
+How to pass string in rest api of php GET method,74782837,0,0,13
+event solver ivp python,74782835,0,1,18
+Vmmem using all RAM,74782833,0,0,10
+List index out of range error for DS1820 sensor on raspberry pi,74782831,0,0,9
