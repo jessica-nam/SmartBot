@@ -204,7 +204,7 @@ def to_JSON(file):
                     "url": row[6], 
                     })
     
-    with open("intents.json", "w", encoding="utf-8") as f:
+    with open("old.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
 
     
