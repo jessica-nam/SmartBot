@@ -9,7 +9,7 @@ URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = "python"  # can be "python", "recursion". etc.
+TAG = ""  # can be "python", "recursion". etc.
 TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
 
 # Pre set page amount
@@ -50,20 +50,23 @@ def scrape_one_question_page(page):
     for v in vote_answer_view_HTML_list:
         vote_answer_view_list.append(v.text) # THIS IS TEXT
 
-    ##### CURRENTLY UNUSED ######
-    # Question descriptions found in h3 tags with class='s-post-summary--content-excerpt'
+    ##### Question descriptions found in h3 tags with class='s-post-summary--content-excerpt' #####
     description_list = soup.find_all(
         "div", class_="s-post-summary--content-excerpt")
 
-    for desc in description_list:
-        print(desc.text)
-
-
+    ##### Find the first tag of each question (This is needed for ML model) #####
+    tag_list = soup.find_all("ul", class_="ml0 list-ls-none js-post-tag-list-wrapper d-inline")
+    tag_text_list = []
+    for tag in tag_list:
+        for li in tag.find('li'):
+            tag_text_list.append(li.text)
+    # print(tag_text_list)
+    
     # [Question, Post_ID, Vote, Answer, View]
     OnePageOutput = []
 
     i = 0
-    for (x, y, z) in zip(questions_list, description_list, answers_link_list):
+    for (x, y, z, a) in zip(questions_list, description_list, answers_link_list, tag_text_list):
         OnePageOutput.append(x.text.strip())
         OnePageOutput.append(y.text.strip())
 
@@ -81,7 +84,8 @@ def scrape_one_question_page(page):
         post_ID = post_ID.replace("'", "")              # format: "503093"
         OnePageOutput.append(post_ID)                   # Add as second element after its question summary
 
-    
+        OnePageOutput.append(a)
+
         ### Grab [Vote, Answer, View] values for the question 
         for j in range(3):
             OnePageOutput.append(vote_answer_view_list[i+j])
@@ -91,14 +95,14 @@ def scrape_one_question_page(page):
 
     # data values ([Question,Description,PostID,Vote,Answer,View]) split for each question
     data = [
-    OnePageOutput[i:i + 6] for i in range(0, len(OnePageOutput), 6)]
+    OnePageOutput[i:i + 7] for i in range(0, len(OnePageOutput), 7)]
 
     # Dictionary format for JSON
     QuestionPage = []
 
     # Unpack data into dictionary format
     for i in data:
-        question, questionSum, postID, vote, answers, view = [str(e) for e in i]
+        question, questionSum, postID, tag, vote, answers, view = [str(e) for e in i]
 
         answer = "none"
 
@@ -129,7 +133,7 @@ def scrape_one_question_page(page):
             # print(answerlistConfig)
 
         QuestionPage.append({
-            "tag": TAG,
+            "tag": tag,
             "question": [question] + [questionSum],
             
             # "postID": postID,
