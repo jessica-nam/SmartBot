@@ -1,10 +1,15 @@
+from nltk.stem import WordNetLemmatizer # To reduce words to stem for performance ex: work, working, worked will all be the same word
+import random                           # Achieving random response
+import pickle                           # For serialization
+import json
+import numpy as np
 import nltk
 
-def tokenize(sentence):
-    pass
+from tensorflow import keras            # Machine learning model
+from keras.models import Sequential 
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
 
-def stem(word):
-    pass
+lemmatizer = WordNetLemmatizer()
 
-def bag_of_words(tokenized_sentence, all_words):
-    pass
+intents = json.loads(open('intents.json').read())
