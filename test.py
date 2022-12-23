@@ -3,6 +3,7 @@ from pprint import pprint     # For readability while testing
 import requests               # For accessing URL
 import csv                    # For writing data
 import re                     # For extracting postID 
+import json                   # CSV to JSON
 
 # These are the base URLs I will use
 URL1 = "https://stackoverflow.com/questions/tagged/"
@@ -22,7 +23,7 @@ PAGE_LIMIT = 2 # if 3 it actually grabs 10 pages idky
 
 def build_url(base_url=URL1, tag = TAG, tab=TAB, page=PAGE_LIMIT):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
-    print(f"{base_url}{tag}?tab={tab}&page={page}")
+    # print(f"{base_url}{tag}?tab={tab}&page={page}")
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
 def build_answer_url(base_url=URL2, postID=""):
@@ -34,7 +35,7 @@ def scrape_one_question_page(page):
     """ Retrives newest question, postID, votes, answer, view count from StackOverflow by scraping one page 
         NOTE TO SELF: "answers" derived from this function only indicates answer count """
 
-    response = requests.get(build_url(page=page))
+    response = requests.get(build_url(page=page), timeout=5)
 
     # Parse HTML with BeautifulSoup
     soup = BeautifulSoup(response.text, features="html.parser")
@@ -45,7 +46,7 @@ def scrape_one_question_page(page):
 
     ##### Find question answer link (we can grab postID from this)
     answers_link_list = soup.find_all("a", class_="s-link")
-    answers_link_list = answers_link_list[3:]   # Remove the first three links which are javascript:void(0)
+    answers_link_list = answers_link_list[2:]   # Remove the first two links which are javascript:void(0)
     answers_link_list = answers_link_list[:-1]  # Remove last link which is https://stackexchange.com/questions?tab=hot
 
     ##### Vote/Answer/View descriptions found in span tags with class='s-post-summary--stats-item-number'
@@ -102,7 +103,7 @@ def scrape_one_question_page(page):
         answer = "none"
 
         if int(answers) > 0:
-            response = requests.get(f"https://stackoverflow.com/questions/{postID}")
+            response = requests.get(f"https://stackoverflow.com/questions/{postID}", timeout=5)
             soup = BeautifulSoup(response.text, features="html.parser")
             answer = soup.find("div", class_=["answer", "js-answer", "accepted_answer"])
             if not answer: 
@@ -113,9 +114,8 @@ def scrape_one_question_page(page):
             else:
             
                 answer = "".join(map(lambda x: x.text.strip(), answer.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
-            
 
-        print(answer)
+        # print(answer)
 
         QuestionPage.append({
             "question": question,
@@ -152,17 +152,50 @@ def scrape_question_pages(page_limit):
 def export_data(pages):
     """ Export dictionary data into questions.csv file """
 
+    
+
     ### Data from multiple pages ###
     data = scrape_question_pages(pages)
-
+    
     with open("testing.csv", "w", encoding="utf-8") as f:
         fieldnames = ["postID", "question", "views", "votes", "answers", "answer", "url"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for i in data:
             writer.writerow(i)
-        print("Done writing")
+        print("Done writing to CSV")
+
+def to_JSON(file):
+    """ Convert CSV file to JSON Dictionary format file """
+
+    with open(file, "r",encoding='utf-8') as f:
+        reader = csv.reader(f)
+        next(reader)
+        data = {"query": []}
+        for row in reader:
+            #print(row)
+            if row == []:
+                print("empty")
+            else:
+                data["query"].append({
+                    "postID": row[0], 
+                    "question": row[1], 
+                    "views": row[2],
+                    "votes": row[3],
+                    "answers": row[4], # Number of answers
+                    "answer": row[5],  # Top answer
+                    "url": row[6], 
+                    })
+    
+                print(data)
+    
+
 
 if __name__ == "__main__":
     pages = 1
-    export_data(pages)
+
+    #### Uncommenting this will cause refresh
+    # export_data(pages)
+
+    file = "testing.csv"
+    to_JSON(file)
