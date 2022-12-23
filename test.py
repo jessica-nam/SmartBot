@@ -4,6 +4,7 @@ import requests               # For accessing URL
 import csv                    # For writing data
 import re                     # For extracting postID 
 import json                   # CSV to JSON
+import time
 
 # These are the base URLs I will use
 URL1 = "https://stackoverflow.com/questions/tagged/"
@@ -60,7 +61,6 @@ def scrape_one_question_page(page):
     # Question descriptions found in h3 tags with class='s-post-summary--content-excerpt'
     description_list = soup.find_all(
         "h3", class_="s-post-summary--content-excerpt")
-
 
 
     # [Question, Post_ID, Vote, Answer, View]
@@ -134,6 +134,7 @@ def scrape_question_pages(page_limit):
     questions = []
     for i in range(1, page_limit + 1):
         page_question = scrape_one_question_page(i)
+        time.sleep(2)
         questions.extend(page_question) # Use extend to add multiple items
     return questions
 
@@ -155,8 +156,11 @@ def export_data(pages):
     
 
     ### Data from multiple pages ###
-    data = scrape_question_pages(pages)
-    
+    # data = scrape_question_pages(pages)
+
+    ### Data from a specific page ###
+    data = scrape_one_question_page(2)
+
     with open("testing.csv", "w", encoding="utf-8") as f:
         fieldnames = ["postID", "question", "views", "votes", "answers", "answer", "url"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -197,7 +201,7 @@ if __name__ == "__main__":
     pages = 1
 
     #### Uncommenting this will cause refresh
-    # export_data(pages)
+    export_data(pages)
 
-    file = "testing.csv"
-    to_JSON(file)
+    # file = "testing.csv"
+    # to_JSON(file)
