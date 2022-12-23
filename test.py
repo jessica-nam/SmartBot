@@ -4,7 +4,7 @@ import requests               # For accessing URL
 import csv                    # For writing data
 import re                     # For extracting postID 
 import json                   # CSV to JSON
-import time
+import time                   # To help slow down requests
 
 # These are the base URLs I will use
 URL1 = "https://stackoverflow.com/questions/tagged/"
@@ -105,7 +105,10 @@ def scrape_one_question_page(page):
         if int(answers) > 0:
             response = requests.get(f"https://stackoverflow.com/questions/{postID}", timeout=5)
             soup = BeautifulSoup(response.text, features="html.parser")
+
+            #### Gets top answer ####
             answer = soup.find("div", class_=["answer", "js-answer", "accepted_answer"])
+
             if not answer: 
                 answer = soup.find("div", class_=["answer", "js-answer"])
 
@@ -115,7 +118,16 @@ def scrape_one_question_page(page):
             
                 answer = "".join(map(lambda x: x.text.strip(), answer.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
 
-        # print(answer)
+            #### Gets all answers in a list ####
+            answerlist = soup.findAll("div", class_=["answer", "js-answer", "suggested_answer"])
+            answerlistConfig = []
+            for ans in answerlist:
+                # print(ans.text)
+                answerText = "".join(map(lambda x: x.text.strip(), ans.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
+                answerlistConfig.append(answerText)
+
+            # print(answerlistConfig)
+
 
         QuestionPage.append({
             "question": question,
@@ -124,7 +136,7 @@ def scrape_one_question_page(page):
             "answers": answers,
             "views": view,
             "url": f"https://stackoverflow.com/questions/{postID}",
-            "answer": answer
+            "answer": answerlistConfig
         })
     return QuestionPage
 
@@ -150,7 +162,7 @@ def scrape_question_pages(page_limit):
 #     for x in answers_list:
 #         print(x.find('p').text)
 
-def export_data(pages):
+def export_data(page):
     """ Export dictionary data into questions.csv file """
 
     
@@ -159,7 +171,7 @@ def export_data(pages):
     # data = scrape_question_pages(pages)
 
     ### Data from a specific page ###
-    data = scrape_one_question_page(2)
+    data = scrape_one_question_page(page)
 
     with open("testing.csv", "w", encoding="utf-8") as f:
         fieldnames = ["postID", "question", "views", "votes", "answers", "answer", "url"] # Rows for CSV
@@ -182,11 +194,11 @@ def to_JSON(file):
                 print("empty")
             else:
                 data["queries"].append({
-                    "postID": row[0], 
+                    # "postID": row[0], 
                     "question": row[1], 
-                    "views": row[2],
+                    # "views": row[2],
                     "votes": row[3],
-                    "answers": row[4], # Number of answers
+                    # "answers": row[4], # Number of answers
                     "answer": row[5],  # Top answer text
                     "url": row[6], 
                     })
@@ -198,10 +210,10 @@ def to_JSON(file):
 
 
 if __name__ == "__main__":
-    pages = 1
+    page = 1
 
     #### Uncommenting this will cause refresh
-    export_data(pages)
+    # export_data(page)
 
-    # file = "testing.csv"
-    # to_JSON(file)
+    file = "testing.csv"
+    to_JSON(file)
