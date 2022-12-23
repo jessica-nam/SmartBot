@@ -17,7 +17,6 @@ PAGE_LIMIT = 2 # if 3 it actually grabs 10 pages idky
 
 def build_url(base_url=URL1, tag = TAG, tab=TAB, page=PAGE_LIMIT):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
-    # print(f"{base_url}{tag}?tab={tab}&page={page}")
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
 def build_answer_url(base_url=URL2, postID=""):
@@ -60,7 +59,6 @@ def scrape_one_question_page(page):
     for tag in tag_list:
         for li in tag.find('li'):
             tag_text_list.append(li.text)
-    # print(tag_text_list)
     
     # [Question, Post_ID, Vote, Answer, View]
     OnePageOutput = []
@@ -126,11 +124,9 @@ def scrape_one_question_page(page):
             answerlist = soup.findAll("div", class_=["answer", "js-answer", "suggested_answer"])
             answerlistConfig = []
             for ans in answerlist:
-                # print(ans.text)
                 answerText = "".join(map(lambda x: x.text.strip(), ans.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
                 if len(answerText): answerlistConfig.append(answerText)
 
-            # print(answerlistConfig)
 
         QuestionPage.append({
             "tag": tag,
