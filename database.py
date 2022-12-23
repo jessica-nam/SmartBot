@@ -45,7 +45,7 @@ def scrape_one_question_page(page):
 
     ##### Find question answer link (we can grab postID from this)
     answers_link_list = soup.find_all("a", class_="s-link")
-    answers_link_list = answers_link_list[3:]   # Remove the first three links which are javascript:void(0)
+    answers_link_list = answers_link_list[2:]   # Remove the first three links which are javascript:void(0)
     answers_link_list = answers_link_list[:-1]  # Remove last link which is https://stackexchange.com/questions?tab=hot
 
     ##### Vote/Answer/View descriptions found in span tags with class='s-post-summary--stats-item-number'
@@ -150,4 +150,3 @@ def scrape_one_answer_page(postID):
 if __name__ == "__main__":
     pages = 5
     export_data(pages)
-
