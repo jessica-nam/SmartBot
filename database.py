@@ -135,7 +135,7 @@ def export_data(pages):
 def scrape_one_answer_page(postID):
     """ Retrives the answer from the question page by the postID """
 
-    response = requests.get(build_answer_url(URL, postID))
+    response = requests.get(build_answer_url(URL2, postID))
     soup = BeautifulSoup(response.text, features="html.parser")
 
     answers_list = soup.find_all(
