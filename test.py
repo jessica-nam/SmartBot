@@ -45,7 +45,7 @@ def scrape_one_question_page(page):
 
     ##### Find question answer link (we can grab postID from this)
     answers_link_list = soup.find_all("a", class_="s-link")
-    answers_link_list = answers_link_list[2:]   # Remove the first three links which are javascript:void(0)
+    answers_link_list = answers_link_list[3:]   # Remove the first three links which are javascript:void(0)
     answers_link_list = answers_link_list[:-1]  # Remove last link which is https://stackexchange.com/questions?tab=hot
 
     ##### Vote/Answer/View descriptions found in span tags with class='s-post-summary--stats-item-number'
@@ -80,10 +80,7 @@ def scrape_one_question_page(page):
         post_ID = post_ID.replace("'", "")              # format: "503093"
         OnePageOutput.append(post_ID)                   # Add as second element after its question summary
 
-        #### TESTING ####
-        # scrape_one_answer_page(post_ID)
-
-
+    
         ### Grab [Vote, Answer, View] values for the question 
         for j in range(3):
             OnePageOutput.append(vote_answer_view_list[i+j])
@@ -102,12 +99,32 @@ def scrape_one_question_page(page):
     for i in data:
         question, postID, vote, answers, view = [str(e) for e in i]
 
+        answer = "none"
+
+        if int(answers) > 0:
+            response = requests.get(f"https://stackoverflow.com/questions/{postID}")
+            soup = BeautifulSoup(response.text, features="html.parser")
+            answer = soup.find("div", class_=["answer", "js-answer", "accepted_answer"])
+            if not answer: 
+                answer = soup.find("div", class_=["answer", "js-answer"])
+
+            if answer is None:
+                answer = ""
+            else:
+            
+                answer = "".join(map(lambda x: x.text.strip(), answer.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
+            
+
+        print(answer)
+
         QuestionPage.append({
             "question": question,
             "postID": postID,
             "votes": vote,
             "answers": answers,
-            "views": view
+            "views": view,
+            "url": f"https://stackoverflow.com/questions/{postID}",
+            "answer": answer
         })
     return QuestionPage
 
@@ -120,6 +137,17 @@ def scrape_question_pages(page_limit):
         questions.extend(page_question) # Use extend to add multiple items
     return questions
 
+# def scrape_one_answer_page(postID):
+#     """ Retrives the answer from the question page by the postID """
+
+#     response = requests.get(build_answer_url(URL, postID))
+#     soup = BeautifulSoup(response.text, features="html.parser")
+
+#     answers_list = soup.find_all(
+#         "div", class_="s-prose js-post-body")
+
+#     for x in answers_list:
+#         print(x.find('p').text)
 
 def export_data(pages):
     """ Export dictionary data into questions.csv file """
@@ -127,31 +155,14 @@ def export_data(pages):
     ### Data from multiple pages ###
     data = scrape_question_pages(pages)
 
-    with open("questions.csv", "w") as f:
-        fieldnames = ["question", "postID", "votes", "answers", "views"] # Rows for CSV
+    with open("testing.csv", "w", encoding="utf-8") as f:
+        fieldnames = ["postID", "question", "views", "votes", "answers", "answer", "url"] # Rows for CSV
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for i in data:
             writer.writerow(i)
         print("Done writing")
 
-def scrape_one_answer_page(postID):
-    """ Retrives the answer from the question page by the postID """
-
-    response = requests.get(build_answer_url(URL2, postID))
-    soup = BeautifulSoup(response.text, features="html.parser")
-
-    answers_list = soup.find_all(
-        "div", class_="s-prose js-post-body")
-
-    for x in answers_list:
-        if x == None:
-            break
-        print(x.find('p').text)
-
-    
-    
-
 if __name__ == "__main__":
-    pages = 5
+    pages = 1
     export_data(pages)
