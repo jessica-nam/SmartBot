@@ -53,21 +53,28 @@ def scrape_one_question_page(page):
     ##### CURRENTLY UNUSED ######
     # Question descriptions found in h3 tags with class='s-post-summary--content-excerpt'
     description_list = soup.find_all(
-        "h3", class_="s-post-summary--content-excerpt")
+        "div", class_="s-post-summary--content-excerpt")
+
+    for desc in description_list:
+        print(desc.text)
 
 
     # [Question, Post_ID, Vote, Answer, View]
     OnePageOutput = []
 
     i = 0
-    for (x, y) in zip(questions_list, answers_link_list):
+    for (x, y, z) in zip(questions_list, description_list, answers_link_list):
         OnePageOutput.append(x.text.strip())
+        OnePageOutput.append(y.text.strip())
 
-        ### Grab question summary 
+        ### Grab question 
         question = x.text.strip()
 
+        ### Grab question summary
+        questionSum = y.text.strip()
+
         ### Grab postID
-        link = y['href']
+        link = z['href']
         post_ID = link[10:20]                           # format: "/503093/"
         post_ID = str(re.findall('/([^"]*)/', post_ID)) # format: "['503093']"
         post_ID = post_ID[1:-1]                         # format: "'503093'"
@@ -82,16 +89,16 @@ def scrape_one_question_page(page):
         i += j+1
     i = 0
 
-    # data values ([Question,PostID,Vote,Answer,View]) split for each question
+    # data values ([Question,Description,PostID,Vote,Answer,View]) split for each question
     data = [
-    OnePageOutput[i:i + 5] for i in range(0, len(OnePageOutput), 5)]
+    OnePageOutput[i:i + 6] for i in range(0, len(OnePageOutput), 6)]
 
     # Dictionary format for JSON
     QuestionPage = []
 
     # Unpack data into dictionary format
     for i in data:
-        question, postID, vote, answers, view = [str(e) for e in i]
+        question, questionSum, postID, vote, answers, view = [str(e) for e in i]
 
         answer = "none"
 
@@ -123,7 +130,8 @@ def scrape_one_question_page(page):
 
         QuestionPage.append({
             "tag": TAG,
-            "question": [question],
+            "question": [question] + [questionSum],
+            
             # "postID": postID,
             # "votes": vote,
             # "answers": answers,
