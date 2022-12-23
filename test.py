@@ -187,15 +187,16 @@ def to_JSON(file):
     with open(file, "r", encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader)
-        data = {"queries": []}
+        data = {"intents": []}
         for row in reader:
             #print(row)
             if row == []:
                 print("empty")
             else:
-                data["queries"].append({
+                data["intents"].append({
+                    "tag": TAG,
                     # "postID": row[0], 
-                    "question": row[1], 
+                    "question": [row[1]], 
                     # "views": row[2],
                     "votes": row[3],
                     # "answers": row[4], # Number of answers
@@ -203,7 +204,7 @@ def to_JSON(file):
                     "url": row[6], 
                     })
     
-    with open("test.json", "w", encoding="utf-8") as f:
+    with open("intents.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
 
     
