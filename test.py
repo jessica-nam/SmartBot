@@ -168,26 +168,28 @@ def export_data(pages):
 def to_JSON(file):
     """ Convert CSV file to JSON Dictionary format file """
 
-    with open(file, "r",encoding='utf-8') as f:
+    with open(file, "r", encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader)
-        data = {"query": []}
+        data = {"queries": []}
         for row in reader:
             #print(row)
             if row == []:
                 print("empty")
             else:
-                data["query"].append({
+                data["queries"].append({
                     "postID": row[0], 
                     "question": row[1], 
                     "views": row[2],
                     "votes": row[3],
                     "answers": row[4], # Number of answers
-                    "answer": row[5],  # Top answer
+                    "answer": row[5],  # Top answer text
                     "url": row[6], 
                     })
     
-                print(data)
+    with open("test.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+
     
 
 
