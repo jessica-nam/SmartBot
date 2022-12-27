@@ -9,13 +9,13 @@ URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = ""  # can be "python", "recursion". etc.
+TAG = "OOP"  # can be "python", "recursion". etc.
 TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
 
-# Pre set page amount
-PAGE_LIMIT = 2 # if 3 it actually grabs 10 pages idky
+# # Pre set page amount
+# PAGE_LIMIT = 1
 
-def build_url(base_url=URL1, tag = TAG, tab=TAB, page=PAGE_LIMIT):
+def build_url(page, base_url=URL1, tag = TAG, tab=TAB):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
@@ -136,7 +136,7 @@ def scrape_one_question_page(page):
             # "votes": vote,
             # "answers": answers,
             # "views": view,
-            "url": f"https://stackoverflow.com/questions/{postID}",
+            # "url": f"https://stackoverflow.com/questions/{postID}",
             "answer": answerlistConfig
         })
     return QuestionPage
