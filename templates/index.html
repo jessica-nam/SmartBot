@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-
+ 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Skolo</title>
+    <title>Stacky Duck</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
   </head>
-  <body>
+  <body style="background-color: #282828;">
     <div class="container">
-      <h1>Welcome to Skolo Chatbot</h1>
+        <style>
+            h1 {
+                color:aliceblue;
+                font-size: 60px;
+                margin-top: 30px;
+                text-align: center;
+                font-family: 'Oswald', sans-serif !important;
+            }
+            h2{
+                color:aliceblue;
+                font-size: 30px;
+                text-align: center;
+                font-family: 'Oswald', sans-serif !important;
+            }
+            p{
+                color:aliceblue;
+                font-size: 17px;
+                font-family: 'Oswald', sans-serif !important;
+                display: inline-block;
+            }
+            #submit-button{
+                font-family: 'Oswald', sans-serif !important;
+
+            }
+            #question{
+                font-family: 'Oswald', sans-serif !important;
+            }
+
+        </style>
+      <h1>Hi. My name is Stacky.</h1>
+      <h2>Let's talk code.</h2>
       <br>
       <hr>
-      <br>
+      
 
         <div class="row">
           <div class="col-lg-9">
             <input class="form-control" type="text" name="question" id="question">
           </div>
           <div class="col-lg-3">
-            <button class="btn btn-primary btn-block" id="submit-button">Send</button>
+            <button class="btn btn-dark btn-block" id="submit-button">Send</button>
           </div>
         </div>
-        <br>
+        
         <div class="row">
           <div class="col">
             <p id="response"></p>
@@ -59,8 +90,9 @@
                   question: $("#question").val()
               },
               success: function(result) {
-                $("#response").append("<br>Me: "+$("#question").val()+ "<br> Karabo: "+result.response);
+                $("#response").append("<br><br>Me: "+$("#question").val()+ "<br> Stacky: "+result.response);
                 $("#question").val("")
+               
               },
               error: function(result) {
                   alert('error');
@@ -75,6 +107,5 @@
 
 
     </script>
-
   </body>
 </html>
