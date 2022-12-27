@@ -9,7 +9,7 @@ URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = "OOP"  # can be "python", "recursion". etc.
+TAG = "c%23"  # can be "python", "recursion". etc.
 TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
 
 # # Pre set page amount
@@ -130,14 +130,14 @@ def scrape_one_question_page(page):
 
         QuestionPage.append({
             "tag": tag,
-            "question": [question] + [questionSum],
-            
+            # "question": [question] + [questionSum],
+            "patterns": [question],
             # "postID": postID,
             # "votes": vote,
             # "answers": answers,
             # "views": view,
             # "url": f"https://stackoverflow.com/questions/{postID}",
-            "answer": answerlistConfig
+            "responses": answerlistConfig
         })
     return QuestionPage
 
@@ -168,4 +168,4 @@ if __name__ == "__main__":
     page = 1
 
     ### Uncommenting this will cause refresh
-    export_data(page, "intents.json")
+    export_data(page, "chat_intents.json")
