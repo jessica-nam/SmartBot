@@ -5,10 +5,10 @@ import pickle
 import numpy as np
 
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
+model = load_model('model.h5')
 import json
 import random
-intents = json.loads(open('chat_intents.json', encoding='utf-8').read())
+intents = json.loads(open('intents.json', encoding='utf-8').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
 
@@ -71,14 +71,14 @@ def getResponse(ints, intents_json):
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
-    # print(res)
+    print(res)
     return res
 
-# while True:
-#     print("Type")
-#     msg = input("")
-#     # ints = predict_class(message, model)
-#     # res = getResponse(ints, intents)
-#     # print(res)
+while True:
+    print("Type")
+    msg = input("")
+    # ints = predict_class(message, model)
+    # res = getResponse(ints, intents)
+    # print(res)
 
-#     chatbot_response(msg)
+    chatbot_response(msg)

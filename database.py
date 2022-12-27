@@ -168,4 +168,4 @@ if __name__ == "__main__":
     page = 1
 
     ### Uncommenting this will cause refresh
-    export_data(page, "chat_intents.json")
+    export_data(page, "intents.json")
