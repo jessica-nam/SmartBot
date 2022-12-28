@@ -59,13 +59,6 @@ def getResponse(ints, intents_json):
                 result = "You must ask the right questions"
     except IndexError:
         result = "Could you be more specific?"
-    # list_of_intents = intents_json['intents']
-    # for i in list_of_intents:
-    #     if(i['tag']== tag):
-    #         result = random.choice(i['responses'])
-    #         break
-    #     else:
-    #         result = "You must ask the right questions"
     return result
 
 def chatbot_response(msg):
@@ -77,8 +70,5 @@ def chatbot_response(msg):
 while True:
     print("Type")
     msg = input("")
-    # ints = predict_class(message, model)
-    # res = getResponse(ints, intents)
-    # print(res)
 
     chatbot_response(msg)

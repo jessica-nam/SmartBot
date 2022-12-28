@@ -9,7 +9,7 @@ URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = "c%23"  # can be "python", "recursion". etc.
+TAG = "regex"  # can be "python", "recursion". etc.
 TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
 
 # # Pre set page amount
@@ -153,9 +153,9 @@ def export_data(page, outfile):
     f = None
 
     try:
-        f = open(outfile, "r+")
+        f = open(outfile, "r+", encoding="utf8")
     except:
-        f = open(outfile, "w")
+        f = open(outfile, "w", encoding="utf8")
         json.dump(base, f, indent=4)
     else:
         data = json.loads(f.read())
