@@ -1,7 +1,7 @@
 {
     "intents": [
         {
-            "tag": "python",
+            "tag": "yield",
             "patterns": [
                 "What does the \"yield\" keyword do?",
                 "tell me the yield keyword?"
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "__main__",
             "patterns": [
                 "What does if __name__ == \"__main__\": do?",
                 "What does if __name__ == \"__main__\": do?"
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "ternary",
             "patterns": [
                 "Does Python have a ternary conditional operator?",
                 "does python have a ternary conditional operator?"
@@ -118,7 +118,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "metaclasses",
             "patterns": [
                 "What are metaclasses in Python?",
                 "how are metaclasses used in python?",
@@ -154,7 +154,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "check_for_file",
             "patterns": [
                 "How do I check whether a file exists without exceptions?",
                 "how do i know if a file exists?",
@@ -199,7 +199,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "merge_dict",
             "patterns": [
                 "How do I merge two dictionaries in a single expression?",
                 "how can you merge two dictionaries into the same word?",
@@ -244,7 +244,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "system_command",
             "patterns": [
                 "How do I execute a program or call a system command?",
                 "what can i do to execute a program?",
@@ -287,7 +287,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "nested_directory",
             "patterns": [
                 "How can I safely create a nested directory?",
                 "how do i create my own nested directory?",
@@ -325,7 +325,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "for_index",
             "patterns": [
                 "Accessing the index in 'for' loops",
                 "Accessing the index in 'for' loops"
@@ -360,7 +360,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "flat_list",
             "patterns": [
                 "How do I make a flat list out of a list of lists?",
                 "how do i make a flat list?",
@@ -403,7 +403,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "methods",
             "patterns": [
                 "Difference between @staticmethod and @classmethod",
                 "the difference between static method and class method",
@@ -443,10 +443,13 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "slicing",
             "patterns": [
                 "Understanding slicing",
-                "the understanding of slicing"
+                "the understanding of slicing",
+                "How to slice a list", 
+                "List slicing",
+                "How does list slicing work?"
             ],
             "responses": [
                 "The syntax is:a[start:stop]  # items start through stop-1\na[start:]      # items start through the rest of the array\na[:stop]       # items from the beginning through stop-1\na[:]           # a copy of the whole array\na[start:stop]  # items start through stop-1\na[start:]      # items start through the rest of the array\na[:stop]       # items from the beginning through stop-1\na[:]           # a copy of the whole array\nThere is also the step value, which can be used with any of the above:stepa[start:stop:step] # start through not past stop, by step\na[start:stop:step] # start through not past stop, by step\nThe key point to remember is that the :stop value represents the first value that is not in the selected slice. So, the difference between stop and start is the number of elements selected (if step is 1, the default).:stopnotstopstartstepThe other feature is that start or stop may be a negative number, which means it counts from the end of the array instead of the beginning. So:startstopnegativea[-1]    # last item in the array\na[-2:]   # last two items in the array\na[:-2]   # everything except the last two items\na[-1]    # last item in the array\na[-2:]   # last two items in the array\na[:-2]   # everything except the last two items\nSimilarly, step may be a negative number:stepa[::-1]    # all items in the array, reversed\na[1::-1]   # the first two items, reversed\na[:-3:-1]  # the last two items, reversed\na[-3::-1]  # everything except the last two items, reversed\na[::-1]    # all items in the array, reversed\na[1::-1]   # the first two items, reversed\na[:-3:-1]  # the last two items, reversed\na[-3::-1]  # everything except the last two items, reversed\nPython is kind to the programmer if there are fewer items than you ask for. For example, if you ask for a[:-2] and a only contains one element, you get an empty list instead of an error. Sometimes you would prefer the error, so you have to be aware that this may happen.a[:-2]aRelationship with the slice objectsliceA slice object can represent a slicing operation, i.e.:slice objectslicea[start:stop:step]\na[start:stop:step]\nis equivalent to:a[slice(start, stop, step)]\na[slice(start, stop, step)]\nSlice objects also behave slightly differently depending on the number of arguments, similarly to range(), i.e. both slice(stop) and slice(start, stop[, step]) are supported.\nTo skip specifying a given argument, one might use None, so that e.g. a[start:] is equivalent to a[slice(start, None)] or a[::-1] is equivalent to a[slice(None, None, -1)].range()slice(stop)slice(start, stop[, step])Nonea[start:]a[slice(start, None)]a[::-1]a[slice(None, None, -1)]While the :-based notation is very helpful for simple slicing, the explicit use of slice() objects simplifies the programmatic generation of slicing.:slice()",
@@ -482,10 +485,11 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "list_index",
             "patterns": [
                 "Finding the index of an item in a list",
-                "finding the index of an item in a list"
+                "finding the index of an item in a list", 
+                "How to find the index of element"
             ],
             "responses": [
                 "The simplest case is handled by the built-in .index method of the list:built-in .index method of the list.index\nlist.index(x[, start[, end]])\n\nReturn zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item.\nThe optional arguments start and end are interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list. The returned index is computed relative to the beginning of the full sequence rather than the start argument.\nlist.index(x[, start[, end]])\nlist.index(x[, start[, end]])\nReturn zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item.xValueErrorValueErrorThe optional arguments start and end are interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list. The returned index is computed relative to the beginning of the full sequence rather than the start argument.startendslice notationThus, we can do:>>> [\"foo\", \"bar\", \"baz\"].index(\"bar\")\n1\n>>> [\"foo\", \"bar\", \"baz\"].index(\"bar\")\n1\nCaveatsLinear time-complexity in list lengthAn index call checks every element of the list in order, until it finds a match. If the list is long, and if there is no guarantee that the value will be near the beginning, this can slow down the code.indexThis problem can only be completely avoided by using a different data structure. However, if the element is known to be within a certain part of the list, the start and end parameters can be used to narrow the search.startendFor example:>>> import timeit\n>>> timeit.timeit('l.index(999_999)', setup='l = list(range(0, 1_000_000))', number=1000)\n9.356267921015387\n>>> timeit.timeit('l.index(999_999, 999_990, 1_000_000)', setup='l = list(range(0, 1_000_000))', number=1000)\n0.0004404920036904514\n>>> import timeit\n>>> timeit.timeit('l.index(999_999)', setup='l = list(range(0, 1_000_000))', number=1000)\n9.356267921015387\n>>> timeit.timeit('l.index(999_999, 999_990, 1_000_000)', setup='l = list(range(0, 1_000_000))', number=1000)\n0.0004404920036904514\nThe second call is orders of magnitude faster, because it only has to search through 10 elements, rather than all 1 million.Only the index of the first match is returnedfirst matchA call to index searches through the list in order until it finds a match, and stops there. If there could be more than one occurrence of the value, and all indices are needed, index cannot solve the problem:indexstops there.index>>> [1, 1].index(1) # the `1` index is not found.\n0\n>>> [1, 1].index(1) # the `1` index is not found.\n0\nInstead, use a list comprehension or generator expression to do the search, with enumerate to get indices:list comprehension or generator expression to do the searchenumerate to get indicesenumerate>>> # A list comprehension gives a list of indices directly:\n>>> [i for i, e in enumerate([1, 2, 1]) if e == 1]\n[0, 2]\n>>> # A generator comprehension gives us an iterable object...\n>>> g = (i for i, e in enumerate([1, 2, 1]) if e == 1)\n>>> # which can be used in a `for` loop, or manually iterated with `next`:\n>>> next(g)\n0\n>>> next(g)\n2\n>>> # A list comprehension gives a list of indices directly:\n>>> [i for i, e in enumerate([1, 2, 1]) if e == 1]\n[0, 2]\n>>> # A generator comprehension gives us an iterable object...\n>>> g = (i for i, e in enumerate([1, 2, 1]) if e == 1)\n>>> # which can be used in a `for` loop, or manually iterated with `next`:\n>>> next(g)\n0\n>>> next(g)\n2\nThe list comprehension and generator expression techniques still work if there is only one match, and are more generalizable.Raises an exception if there is no matchAs noted in the documentation above, using .index will raise an exception if the searched-for value is not in the list:.index>>> [1, 1].index(2)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nValueError: 2 is not in list\n>>> [1, 1].index(2)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nValueError: 2 is not in list\nIf this is a concern, either explicitly check first using item in my_list, or handle the exception with try/except as appropriate.explicitly check firstitem in my_listtryexceptThe explicit check is simple and readable, but it must iterate the list a second time. See What is the EAFP principle in Python? for more guidance on this choice.What is the EAFP principle in Python?",
@@ -521,7 +525,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "dictionary_iteration",
             "patterns": [
                 "Iterating over dictionaries using 'for' loops",
                 "the iteration of dictionaries using loops for"
@@ -545,7 +549,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "global_var",
             "patterns": [
                 "Using global variables in a function",
                 "use of global variables in a function",
@@ -581,7 +585,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "dataframe",
             "patterns": [
                 "How to iterate over rows in a DataFrame in Pandas",
                 "how can you iterate over the rows in a dataframe in pandas?",
@@ -621,7 +625,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "time",
             "patterns": [
                 "How do I get the current time?",
                 "how do i know the current time?",
@@ -661,7 +665,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "multiple_exceptions",
             "patterns": [
                 "Catch multiple exceptions in one line (except block)",
                 "catch multiple exceptions in a line other than the block exception"
@@ -676,7 +680,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "contains",
             "patterns": [
                 "Does Python have a string 'contains' substring method?",
                 "Does Python have a string 'contains' substring method?"
@@ -695,9 +699,9 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "bytes_to_string",
             "patterns": [
-                "Convert bytes to a string"
+                "Convert bytes to a string", "How to change bytes into a string"
             ],
             "responses": [
                 "Decode the bytes object to produce a string:Decode the bytes objectbytes>>> b\"abcde\".decode(\"utf-8\") \n'abcde'\n>>> b\"abcde\".decode(\"utf-8\") \n'abcde'\nThe above example assumes that the bytes object is in UTF-8, because it is a common encoding. However, you should use the encoding your data is actually in!assumesbytes",
@@ -726,7 +730,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "__repr__",
             "patterns": [
                 "What is the difference between __str__ and __repr__?",
                 "tell me the difference between repr str and str?",
@@ -765,7 +769,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "copy_files",
             "patterns": [
                 "How to copy files"
             ],
@@ -798,7 +802,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "list_files",
             "patterns": [
                 "How do I list all files of a directory?",
                 "how can you list all the files in a directory?",
@@ -833,7 +837,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "__init__",
             "patterns": [
                 "What is __init__.py for?",
                 "what does initpy does?",
@@ -857,7 +861,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "sort_dict",
             "patterns": [
                 "How do I sort a dictionary by value?",
                 "how can you sort a dictionary by value?",
@@ -898,7 +902,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "add_key",
             "patterns": [
                 "How can I add new keys to a dictionary?",
                 "what can i do to add keys to a dictionary?",
@@ -932,7 +936,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "Least_Astonishment",
             "patterns": [
                 "\"Least Astonishment\" and the Mutable Default Argument",
                 "\"Least Astonishment\" and the Mutable Default Argument"
@@ -971,7 +975,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "concatenate",
             "patterns": [
                 "How do I concatenate two lists in Python?",
                 "how do you concatenate lists in python?",
@@ -1013,7 +1017,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "select_rows",
             "patterns": [
                 "How do I select rows from a DataFrame based on column values?",
                 "how do i select columns from a dataframe?",
@@ -1045,7 +1049,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "check_empty",
             "patterns": [
                 "How do I check if a list is empty?",
                 "how do i know a list is empty or just a blank list?",
@@ -1087,14 +1091,15 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "asterisk",
             "patterns": [
                 "What does ** (double star/asterisk) and * (star/asterisk) do for parameters?",
                 "how do double star  asterisk and star  asterisk compare?",
                 "how does double star and asterisk work for parameters?",
                 "what do double star and asterisk do for parameters?",
                 "what does double starsasterisk and starasterisk do for parameters?",
-                "what does double starasterisk and starasterisk do for parameters?"
+                "what does double starasterisk and starasterisk do for parameters?",
+                "*args", "**kwargs", "args", "kwargs"
             ],
             "responses": [
                 "The *args and **kwargs is a common idiom to allow arbitrary number of arguments to functions as described in the section more on defining functions in the Python documentation.*args**kwargsmore on defining functionsThe *args will give you all function parameters as a tuple:*argsas a tupledef foo(*args):\n    for a in args:\n        print(a)        \n\nfoo(1)\n# 1\n\nfoo(1,2,3)\n# 1\n# 2\n# 3\ndef foo(*args):\n    for a in args:\n        print(a)        \n\nfoo(1)\n# 1\n\nfoo(1,2,3)\n# 1\n# 2\n# 3\nThe **kwargs will give you all\nkeyword arguments except for those corresponding to a formal parameter as a dictionary.**kwargskeyword argumentsdef bar(**kwargs):\n    for a in kwargs:\n        print(a, kwargs[a])  \n\nbar(name='one', age=27)\n# name one\n# age 27\ndef bar(**kwargs):\n    for a in kwargs:\n        print(a, kwargs[a])  \n\nbar(name='one', age=27)\n# name one\n# age 27\nBoth idioms can be mixed with normal arguments to allow a set of fixed and some variable arguments:def foo(kind, *args, **kwargs):\n   pass\ndef foo(kind, *args, **kwargs):\n   pass\nIt is also possible to use this the other way around:def foo(a, b, c):\n    print(a, b, c)\n\nobj = {'b':10, 'c':'lee'}\n\nfoo(100,**obj)\n# 100 10 lee\ndef foo(a, b, c):\n    print(a, b, c)\n\nobj = {'b':10, 'c':'lee'}\n\nfoo(100,**obj)\n# 100 10 lee\nAnother usage of the *l idiom is to unpack argument lists when calling a function.*lunpack argument listsdef foo(bar, lee):\n    print(bar, lee)\n\nl = [1,2]\n\nfoo(*l)\n# 1 2\ndef foo(bar, lee):\n    print(bar, lee)\n\nl = [1,2]\n\nfoo(*l)\n# 1 2\nIn Python 3 it is possible to use *l on the left side of an assignment (Extended Iterable Unpacking), though it gives a list instead of a tuple in this context:*lExtended Iterable Unpackingfirst, *rest = [1,2,3,4]\nfirst, *l, last = [1,2,3,4]\nfirst, *rest = [1,2,3,4]\nfirst, *l, last = [1,2,3,4]\nAlso Python 3 adds new semantic (refer PEP 3102):PEP 3102def func(arg1, arg2, arg3, *, kwarg1, kwarg2):\n    pass\ndef func(arg1, arg2, arg3, *, kwarg1, kwarg2):\n    pass\nFor example the following works in python 3 but not python 2:>>> x = [1, 2]\n>>> [*x]\n[1, 2]\n>>> [*x, 3, 4]\n[1, 2, 3, 4]\n\n>>> x = {1:1, 2:2}\n>>> x\n{1: 1, 2: 2}\n>>> {**x, 3:3, 4:4}\n{1: 1, 2: 2, 3: 3, 4: 4}\n>>> x = [1, 2]\n>>> [*x]\n[1, 2]\n>>> [*x, 3, 4]\n[1, 2, 3, 4]\n\n>>> x = {1:1, 2:2}\n>>> x\n{1: 1, 2: 2}\n>>> {**x, 3:3, 4:4}\n{1: 1, 2: 2, 3: 3, 4: 4}\nSuch function accepts only 3 positional arguments, and everything after * can only be passed as keyword arguments.*Note:\nA Python dict, semantically used for keyword argument passing, are arbitrarily ordered. However, in Python 3.6, keyword arguments are guaranteed to remember insertion order.\n\"The order of elements in **kwargs now corresponds to the order in which keyword arguments were passed to the function.\" - What\u2019s New In Python 3.6\nIn fact, all dicts in CPython 3.6 will remember insertion order as an implementation detail, this becomes standard in Python 3.7.\nA Python dict, semantically used for keyword argument passing, are arbitrarily ordered. However, in Python 3.6, keyword arguments are guaranteed to remember insertion order.dict\"The order of elements in **kwargs now corresponds to the order in which keyword arguments were passed to the function.\" - What\u2019s New In Python 3.6**kwargsWhat\u2019s New In Python 3.6In fact, all dicts in CPython 3.6 will remember insertion order as an implementation detail, this becomes standard in Python 3.7.",
@@ -1125,7 +1130,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "reference",
             "patterns": [
                 "How do I pass a variable by reference?",
                 "how do you pass variables by reference?",
@@ -1169,7 +1174,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "clone_list",
             "patterns": [
                 "How do I clone a list so that it doesn't change unexpectedly after assignment?",
                 "how do i clone my list for later use?",
@@ -1204,7 +1209,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "delay",
             "patterns": [
                 "How do I make a time delay? [duplicate]",
                 "how can you make a delay?",
@@ -1229,7 +1234,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "delete_file",
             "patterns": [
                 "How can I delete a file or folder in Python?",
                 "how do i delete my python file?",
@@ -1260,7 +1265,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "append_extend",
             "patterns": [
                 "What is the difference between Python's list methods append and extend?",
                 "tell me the difference between append and extended list methods?",
@@ -1296,7 +1301,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "super",
             "patterns": [
                 "Understanding Python super() with __init__() methods [duplicate]",
                 "Understanding Python super() with __init__() methods [duplicate]"
@@ -1312,7 +1317,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "decorators",
             "patterns": [
                 "How to make function decorators and chain them together?",
                 "how do you tie the function decorators together?",
@@ -1342,7 +1347,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "Matplotlib",
             "patterns": [
                 "How do I change the size of figures drawn with Matplotlib?",
                 "how can you change the size of the figures?",
@@ -1369,7 +1374,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "exception",
             "patterns": [
                 "Manually raising (throwing) an exception in Python",
                 "manually raising an exception in python"
@@ -1389,7 +1394,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "color_text",
             "patterns": [
                 "How do I print colored text to the terminal?",
                 "what can i do to print a colored text to a terminal?",
@@ -1431,7 +1436,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "split_list",
             "patterns": [
                 "How do I split a list into equally-sized chunks?",
                 "tell me the best way to sort the lists into equally-sized chunks?",
@@ -1475,7 +1480,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "environment_var",
             "patterns": [
                 "How can I access environment variables in Python?",
                 "how do i manipulate environment variables on my python?",
@@ -1504,7 +1509,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "datetime",
             "patterns": [
                 "Convert string \"Jun 1 2005 1:33PM\" into datetime"
             ],
@@ -1538,7 +1543,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "python_speed",
             "patterns": [
                 "Why is \"1000000000000000 in range(1000000000000001)\" so fast in Python 3?",
                 "what causes 1000000000000000 in range 1000000000001 to be so fast in python?",
@@ -1560,10 +1565,10 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "find_directory",
             "patterns": [
                 "Find the current directory and file's directory [duplicate]",
-                "Find the current directory and file's directory [duplicate]"
+                "Find the current directory and file's directory [duplicate]", "How to find directory"
             ],
             "responses": [
                 "To get the full path to the directory a Python file is contained in, write this in that file:import os \ndir_path = os.path.dirname(os.path.realpath(__file__))\nimport os \ndir_path = os.path.dirname(os.path.realpath(__file__))\n(Note that the incantation above won't work if you've already used os.chdir() to change your current working directory, since the value of the __file__ constant is relative to the current working directory and is not changed by an os.chdir() call.)os.chdir()__file__os.chdir()To get the current working directory use import os\ncwd = os.getcwd()\nimport os\ncwd = os.getcwd()\nDocumentation references for the modules, constants and functions used above:\nThe os and os.path modules.\nThe __file__ constant\nos.path.realpath(path) (returns \"the canonical path of the specified filename, eliminating any symbolic links encountered in the path\")\nos.path.dirname(path) (returns \"the directory name of pathname path\")\nos.getcwd() (returns \"a string representing the current working directory\")\nos.chdir(path) (\"change the current working directory to path\")\nThe os and os.path modules.ososos.pathos.pathThe __file__ constant__file____file__os.path.realpath(path) (returns \"the canonical path of the specified filename, eliminating any symbolic links encountered in the path\")os.path.realpath(path)os.path.realpath(path)\"the canonical path of the specified filename, eliminating any symbolic links encountered in the path\"os.path.dirname(path) (returns \"the directory name of pathname path\")os.path.dirname(path)os.path.dirname(path)\"the directory name of pathname path\"pathos.getcwd() (returns \"a string representing the current working directory\")os.getcwd()os.getcwd()\"a string representing the current working directory\"os.chdir(path) (\"change the current working directory to path\")os.chdir(path)os.chdir(path)\"change the current working directory to path\"path",
@@ -1582,7 +1587,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "Pandas",
             "patterns": [
                 "Renaming column names in Pandas",
                 "Renaming column names in Pandas"
@@ -1621,7 +1626,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "remove_key",
             "patterns": [
                 "How can I remove a key from a Python dictionary?",
                 "how do i get a key out of a python dictionary?",
@@ -1648,7 +1653,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "check_key",
             "patterns": [
                 "Check if a given key already exists in a dictionary",
                 "check if a given key exists in a dictionary",
@@ -1675,7 +1680,7 @@
             ]
         },
         {
-            "tag": "python",
+            "tag": "parse_string",
             "patterns": [
                 "How do I parse a string to a float or int?",
                 "how do i convert a string to a variable like float?",
