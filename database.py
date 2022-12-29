@@ -1,31 +1,41 @@
-from bs4 import BeautifulSoup # For webscraping
+from bs4 import BeautifulSoup  # For webscraping
 import requests               # For accessing URL
-import re                     # For extracting postID 
+import re                     # For extracting postID
 import json                   # For writing data
+
+# Sentence paraphraser packages
+from parrot import Parrot
+import torch
+import warnings
+warnings.filterwarnings("ignore")
 
 # These are the base URLs I will use
 URL1 = "https://stackoverflow.com/questions/tagged/"
-URL2 = "https://stackoverflow.com/questions/" # For getting answer URL
+URL2 = "https://stackoverflow.com/questions/"  # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = "regex"  # can be "python", "recursion". etc.
-TAB = "votes"  # can be "newest", "votes", "Frequent (Questions with most links)"
+TAG = "python"  # can be "python", "recursion". etc.
+# can be "newest", "votes", "Frequent (Questions with most links)"
+TAB = "votes"
 
 # # Pre set page amount
 # PAGE_LIMIT = 1
 
-def build_url(page, base_url=URL1, tag = TAG, tab=TAB):
+
+def build_url(page, base_url=URL1, tag=TAG, tab=TAB):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
+
 def build_answer_url(base_url=URL2, postID=""):
-    """ Builds StackOverflow answer URL format which takes in two parameters: postID and question """    
-        
+    """ Builds StackOverflow answer URL format which takes in two parameters: postID and question """
+
     return f"{base_url}{postID}"
 
+
 def scrape_one_question_page(page):
-    """ Retrives newest question, postID, votes, answer, view count from StackOverflow by scraping one page 
+    """ Retrives newest question, postID, votes, answer, view count from StackOverflow by scraping one page
         NOTE TO SELF: "answers" derived from this function only indicates answer count """
 
     response = requests.get(build_url(page=page), timeout=5)
@@ -33,33 +43,36 @@ def scrape_one_question_page(page):
     # Parse HTML with BeautifulSoup
     soup = BeautifulSoup(response.text, features="html.parser")
 
-    ##### Questions found in h3 tags with class='s-post-summary--content-title'
+    # Questions found in h3 tags with class='s-post-summary--content-title'
     questions_list = soup.find_all(
         "h3", class_="s-post-summary--content-title")
 
-    ##### Find question answer link (we can grab postID from this)
+    # Find question answer link (we can grab postID from this)
     answers_link_list = soup.find_all("a", class_="s-link")
-    answers_link_list = answers_link_list[2:]   # Remove the first two links which are javascript:void(0)
-    answers_link_list = answers_link_list[:-1]  # Remove last link which is https://stackexchange.com/questions?tab=hot
+    # Remove the first two links which are javascript:void(0)
+    answers_link_list = answers_link_list[2:]
+    # Remove last link which is https://stackexchange.com/questions?tab=hot
+    answers_link_list = answers_link_list[:-1]
 
-    ##### Vote/Answer/View descriptions found in span tags with class='s-post-summary--stats-item-number'
-    vote_answer_view_HTML_list = soup.find_all( 
-        "span", class_="s-post-summary--stats-item-number") # THIS IS HTML NOT TEXT
+    # Vote/Answer/View descriptions found in span tags with class='s-post-summary--stats-item-number'
+    vote_answer_view_HTML_list = soup.find_all(
+        "span", class_="s-post-summary--stats-item-number")  # THIS IS HTML NOT TEXT
     vote_answer_view_list = []
     for v in vote_answer_view_HTML_list:
-        vote_answer_view_list.append(v.text) # THIS IS TEXT
+        vote_answer_view_list.append(v.text)  # THIS IS TEXT
 
     ##### Question descriptions found in h3 tags with class='s-post-summary--content-excerpt' #####
     description_list = soup.find_all(
         "div", class_="s-post-summary--content-excerpt")
 
     ##### Find the first tag of each question (This is needed for ML model) #####
-    tag_list = soup.find_all("ul", class_="ml0 list-ls-none js-post-tag-list-wrapper d-inline")
+    tag_list = soup.find_all(
+        "ul", class_="ml0 list-ls-none js-post-tag-list-wrapper d-inline")
     tag_text_list = []
     for tag in tag_list:
         for li in tag.find('li'):
             tag_text_list.append(li.text)
-    
+
     # [Question, Post_ID, Vote, Answer, View]
     OnePageOutput = []
 
@@ -68,23 +81,24 @@ def scrape_one_question_page(page):
         OnePageOutput.append(x.text.strip())
         OnePageOutput.append(y.text.strip())
 
-        ### Grab question 
+        # Grab question
         question = x.text.strip()
 
-        ### Grab question summary
+        # Grab question summary
         questionSum = y.text.strip()
 
-        ### Grab postID
+        # Grab postID
         link = z['href']
         post_ID = link[10:20]                           # format: "/503093/"
-        post_ID = str(re.findall('/([^"]*)/', post_ID)) # format: "['503093']"
+        post_ID = str(re.findall('/([^"]*)/', post_ID))  # format: "['503093']"
         post_ID = post_ID[1:-1]                         # format: "'503093'"
         post_ID = post_ID.replace("'", "")              # format: "503093"
-        OnePageOutput.append(post_ID)                   # Add as second element after its question summary
+        # Add as second element after its question summary
+        OnePageOutput.append(post_ID)
 
         OnePageOutput.append(a)
 
-        ### Grab [Vote, Answer, View] values for the question 
+        # Grab [Vote, Answer, View] values for the question
         for j in range(3):
             OnePageOutput.append(vote_answer_view_list[i+j])
 
@@ -100,38 +114,47 @@ def scrape_one_question_page(page):
 
     # Unpack data into dictionary format
     for i in data:
-        question, questionSum, postID, tag, vote, answers, view = [str(e) for e in i]
+        question, questionSum, postID, tag, vote, answers, view = [
+            str(e) for e in i]
 
         answer = "none"
 
         if int(answers) > 0:
-            response = requests.get(f"https://stackoverflow.com/questions/{postID}", timeout=5)
+            response = requests.get(
+                f"https://stackoverflow.com/questions/{postID}", timeout=5)
             soup = BeautifulSoup(response.text, features="html.parser")
 
             #### Gets top answer ####
-            answer = soup.find("div", class_=["answer", "js-answer", "accepted_answer"])
+            answer = soup.find(
+                "div", class_=["answer", "js-answer", "accepted_answer"])
 
-            if not answer: 
+            if not answer:
                 answer = soup.find("div", class_=["answer", "js-answer"])
 
             if answer is None:
                 answer = ""
             else:
-            
-                answer = "".join(map(lambda x: x.text.strip(), answer.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
+
+                answer = "".join(map(lambda x: x.text, answer.find(
+                    "div", {"class": ["s-prose", "js-post-body"]})()))
 
             #### Gets all answers in a list ####
-            answerlist = soup.findAll("div", class_=["answer", "js-answer", "suggested_answer"])
+            answerlist = soup.findAll(
+                "div", class_=["answer", "js-answer", "suggested_answer"])
             answerlistConfig = []
             for ans in answerlist:
-                answerText = "".join(map(lambda x: x.text.strip(), ans.find("div", {"class": ["s-prose", "js-post-body"]})("p")))
+                answerText = "".join(map(lambda x: x.text, ans.find(
+                    "div", {"class": ["s-prose", "js-post-body"]})()))
                 if len(answerText): answerlistConfig.append(answerText)
 
+        question_paraphrase = [question]
+
+        paraphrased_questions = paraphrase_text(1234, question_paraphrase)
 
         QuestionPage.append({
             "tag": tag,
             # "question": [question] + [questionSum],
-            "patterns": [question],
+            "patterns": [question] + paraphrased_questions,
             # "postID": postID,
             # "votes": vote,
             # "answers": answers,
@@ -140,6 +163,7 @@ def scrape_one_question_page(page):
             "responses": answerlistConfig
         })
     return QuestionPage
+
 
 def export_data(page, outfile):
     """ Export dictionary data into outfile JSON """
@@ -164,8 +188,53 @@ def export_data(page, outfile):
         json.dump(base, f, indent=4)
         f.truncate()
 
+##### Question Paraphraser ######
+
+
+# def reproduce_text(seed):
+#     """ This function is for creating multiple versions of the same sentence to give our bot more data and make it better. 
+#         For this, a random seed number is set and the same results are produced for the same seed number """
+#     torch.manual_seed(seed)
+#     if torch.cuda.is_available():
+#         torch.cuda.manual_seed_all(seed)
+
+# reproduce_text(1234)
+# parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+
+def paraphrase_text(seed, sentence):
+    """ This function paraphrases a given sentence using the PARROT library """
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+    questions = []
+    for s in sentence:
+        # print("-"*100)
+        # print("Input_phrase: ", sentence)
+        # print("-"*100)
+        para_phrases = parrot.augment(input_phrase=s)
+        if para_phrases is None:
+            break
+        else:
+            for para_phrase in para_phrases:
+                # print(para_phrase)
+                para_phrase = para_phrase[0]
+                questions.append(para_phrase)
+
+    return questions
+
 if __name__ == "__main__":
     page = 1
 
-    ### Uncommenting this will cause refresh
+    # reproduce_text(1234)
+
+    # Using a pretrained model found on github! 
+    parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+
+    # sentence = ["What are metaclasses in Python?"]
+    # lists = paraphrase_text(1234, sentence)
+
+
+    # Uncommenting this will cause refresh
     export_data(page, "intents.json")
