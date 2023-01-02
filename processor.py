@@ -58,7 +58,18 @@ def getResponse(ints, intents_json):
             else:
                 result = "You must ask the right questions"
     except IndexError:
-        result = "Could you be more specific?"
+        temp = random.randrange(0,5)
+        if temp == 0:
+            result = "Could you be more specific?"
+        elif temp == 1:
+            result = "Could you try rephrasing by adding or removing specific words?"
+        elif temp == 2:
+            result = "I am sorry. I don't understand. Stacky is only a baby after all..."
+        elif temp == 3:
+            result = "I am not sure I have an answer for that. But of course you can always go to https://stackoverflow.com/"
+        else:
+            result = "Could you try wording your question in a different way?"
+        
     return result
 
 def chatbot_response(msg):

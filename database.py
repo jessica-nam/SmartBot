@@ -15,7 +15,7 @@ URL2 = "https://stackoverflow.com/questions/"  # For getting answer URL
 
 # Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
 # Choices (default is no tag and newest tab)
-TAG = "dictionary"  # can be "python", "recursion". etc.
+TAG = "integer"  # can be "python", "recursion". etc.
 # can be "newest", "votes", "Frequent (Questions with most links)"
 TAB = "votes"
 

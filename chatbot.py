@@ -39,7 +39,7 @@ for intent in intents['intents']:
             classes.append(intent['tag'])
 
 words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
-words = sorted(list(set(words)))
+words = sorted(list(set(words))) 
 
 classes = sorted(list(set(classes)))
 
@@ -84,5 +84,5 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # Save the model into a h5 file
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=5, verbose=1)
 model.save('model.h5', hist)
