@@ -4,6 +4,7 @@ lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
 
+
 from keras.models import load_model
 model = load_model('model.h5')
 import json
@@ -78,8 +79,8 @@ def chatbot_response(msg):
     print(res)
     return res
 
-while True:
-    print("Type")
-    msg = input("")
+# while True:
+#     print("Type")
+#     msg = input("")
 
-    chatbot_response(msg)
+#     chatbot_response(msg)
