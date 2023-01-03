@@ -25,6 +25,7 @@ TAB = "votes"
 
 def build_url(page, base_url=URL1, tag=TAG, tab=TAB):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
+
     return f"{base_url}{tag}?tab={tab}&page={page}"
 
 
@@ -188,21 +189,13 @@ def export_data(page, outfile):
         json.dump(base, f, indent=4)
         f.truncate()
 
-##### Question Paraphraser ######
 
-
-# def reproduce_text(seed):
-#     """ This function is for creating multiple versions of the same sentence to give our bot more data and make it better. 
-#         For this, a random seed number is set and the same results are produced for the same seed number """
-#     torch.manual_seed(seed)
-#     if torch.cuda.is_available():
-#         torch.cuda.manual_seed_all(seed)
-
-# reproduce_text(1234)
-# parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 
 def paraphrase_text(seed, sentence):
     """ This function paraphrases a given sentence using the PARROT library """
+
+    parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
@@ -210,15 +203,12 @@ def paraphrase_text(seed, sentence):
 
     questions = []
     for s in sentence:
-        # print("-"*100)
-        # print("Input_phrase: ", sentence)
-        # print("-"*100)
+
         para_phrases = parrot.augment(input_phrase=s)
         if para_phrases is None:
             break
         else:
             for para_phrase in para_phrases:
-                # print(para_phrase)
                 para_phrase = para_phrase[0]
                 questions.append(para_phrase)
 
