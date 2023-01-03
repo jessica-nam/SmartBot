@@ -14,8 +14,8 @@ There is a concept in computer science that says “garbage in equals garbage ou
 
 Using BeautifulSoup, questions from StackOverflow and their most upvoted answers were then extracted into an intents.json file which was then fed into the machine learning model, created using libraries such as Tensorflow, Keras, and NLTK. The machine learning model parses through the questions and answers in the dataset and tokenizes the words using the Natural Language Processing library, NLTK. To do this, I first created the training data, which was obtained by parsing through the database and categorizing each word. However, a machine learning model can only be trained off of numerical values so training data full of words would be of no use. To convert our data into numerical values that a neural network would be able to read, I used a popular technique called “bag of words” which vectorizes text and turns them into values compatible with my machine learning model. Once the data was converted into numerical values, I built the Neural Network model using the Sequential Tensorflow model. This was easier to implement than I thought because there was extensive documentation and resources available online. The dataset is trained in the model 3000 times and outputs its loss and accuracy rates for each piece of data. An example of such output looks like this:
 
-Epoch 2992/3000
-139/139 [==============================] - 0s 3ms/step - loss: 0.3731 - accuracy: 0.8853
+### Epoch 2992/3000
+### 139/139 [==============================] - 0s 3ms/step - loss: 0.3731 - accuracy: 0.8853
 
 After a process of trial and error, I found that 3000 epochs gave me a low enough loss rate with a fairly high accuracy to continue. This number had to be determined carefully as there was a risk of overtraining where instead of learning the data, the model memorizes it.
 
