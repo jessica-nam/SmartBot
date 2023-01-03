@@ -24,9 +24,13 @@ The bot uses this information to generate the best response. However, before out
 The main Python project files were unit tested using the module unittest. The file app.py is the only Python file that was not unit tested. Due to the Flask application aspect not being essential to Stacky's functionality, app.py does not have a unittest because of the complications that arise when testing functions that need an active HTTP request. However, database.py, processor.py, and chatbot.py were all successfully unit tested. Some of the unit tests take a very long time to finish. Below are screenshots of each of these files passing their unit tests.
 
 ### test_database.py
+![Screenshot (315)](https://user-images.githubusercontent.com/98305390/210315972-d01fe31d-d8bc-4109-9ab5-bd4e14013926.png)
 
 
 ### test_processor.py
+![Screenshot (316)](https://user-images.githubusercontent.com/98305390/210316107-0c041fa7-7cde-4fd9-93d0-7eb56a17796b.png)
 
 
 ### test_chatbot.py
+![Screenshot (317)](https://user-images.githubusercontent.com/98305390/210316147-90e8eb6d-e69d-43a1-8355-945a603c9cfb.png)
+
