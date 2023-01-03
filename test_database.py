@@ -29,7 +29,7 @@ class TestDatabase(unittest.TestCase):
         self.assertIsInstance(test_sentence, list)
 
     def test_scrape_one_question_page(self):
-        """ Using assertIsNotNone(x) because output to database cannot be null """
+        """ Using assertIsInstance(a, b) because output to database must be in list format """
 
         filterwarnings(action='ignore', category=DeprecationWarning, message='`np.bool8` is a deprecated alias for `np.bool_`.')
 

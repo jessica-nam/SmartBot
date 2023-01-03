@@ -6,7 +6,7 @@ class TestChatbot(unittest.TestCase):
     """ Test class that inherits from unittest.testcase """
 
     def test_model(self):
-        """ Using assertIsInstance(a, b) because the sentence must be tokenized into a list in this function """
+        """ Using assertIsNotNone(x) because the output model should not be empty """
 
         test_bot = chatbot.model()
 

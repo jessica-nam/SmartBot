@@ -19,7 +19,7 @@ class TestProcessor(unittest.TestCase):
         self.assertIsInstance(test_sentence, list)
 
     def test_bow(self):
-        """ Using assertIsInstance(a, b) because the sentence must be tokenized into a list in this function """
+        """ Using assertIsInstance(a, b) because the bag of words must be a numpy.ndarray """
 
         words = pickle.load(open('words.pkl','rb'))
         sentence = "I like sushi"
@@ -28,7 +28,7 @@ class TestProcessor(unittest.TestCase):
         self.assertIsInstance(test_sentence, numpy.ndarray)
 
     def test_predict_class(self):
-        """ Using assertIsInstance(a, b) because the sentence must be tokenized into a list in this function """
+        """ Using assertIsInstance(a, b) because the classes must be a list """
 
         model = load_model('model.h5')
         sentence = "What is Python"
@@ -37,7 +37,7 @@ class TestProcessor(unittest.TestCase):
         self.assertIsInstance(test_class, list)
 
     def test_getResponse(self):
-        """ Using assertIsInstance(a, b) because the sentence must be tokenized into a list in this function """
+        """ Using assertIsInstance(a, b) because the response must be a string """
 
         model = load_model('model.h5')
         sentence = "What is Python"
@@ -50,7 +50,7 @@ class TestProcessor(unittest.TestCase):
         self.assertIsInstance(test_response, str)
 
     def test_chatbot_response(self):
-        """ Using assertIsInstance(a, b) because the sentence must be tokenized into a list in this function """
+        """ Using assertIsInstance(a, b) because the response must be a string """
 
         model = load_model('model.h5')
         sentence = "What is Python"

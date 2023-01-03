@@ -13,31 +13,28 @@ warnings.filterwarnings("ignore")
 URL1 = "https://stackoverflow.com/questions/tagged/"
 URL2 = "https://stackoverflow.com/questions/"  # For getting answer URL
 
-# Users should be able to filter what kind of StackOverflow Questions page the chatbot will extract data from
-# Choices (default is no tag and newest tab)
-TAG = "integer"  # can be "python", "recursion". etc.
+# default is no tag and newest tab
+TAG = "dynamic"  # can be "python", "recursion". etc.
+
 # can be "newest", "votes", "Frequent (Questions with most links)"
 TAB = "votes"
-
-# # Pre set page amount
-# PAGE_LIMIT = 1
 
 
 def build_url(page, base_url=URL1, tag=TAG, tab=TAB):
     """ Builds StackOverflow questions URL format which takes in two parameters: tab and page """
-
+    ### Example URL: https://stackoverflow.com/questions/tagged/python?tab=votes&page=1 ###
+    # NOTE: Tag variable is global, user cannot change dataset
     return f"{base_url}{tag}?tab={tab}&page={page}"
-
 
 def build_answer_url(base_url=URL2, postID=""):
     """ Builds StackOverflow answer URL format which takes in two parameters: postID and question """
-
+    ### Example answer URL: https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array ###
+    # NOTE: We just need https://stackoverflow.com/questions/11227809
     return f"{base_url}{postID}"
-
 
 def scrape_one_question_page(page):
     """ Retrives newest question, postID, votes, answer, view count from StackOverflow by scraping one page
-        NOTE TO SELF: "answers" derived from this function only indicates answer count """
+        NOTE: "answers" derived from this function only indicates answer count """
 
     response = requests.get(build_url(page=page), timeout=5)
 
@@ -163,8 +160,9 @@ def scrape_one_question_page(page):
             # "url": f"https://stackoverflow.com/questions/{postID}",
             "responses": answerlistConfig
         })
-    return QuestionPage
 
+    ### This will be the data written into JSON file ###
+    return QuestionPage
 
 def export_data(page, outfile):
     """ Export dictionary data into outfile JSON """
@@ -177,10 +175,11 @@ def export_data(page, outfile):
 
     f = None
 
+    ### Writing to JSON file ###
     try:
-        f = open(outfile, "r+", encoding="utf8")
+        f = open(outfile, "r+", encoding="utf8") # No encoding="utf8" raises error
     except:
-        f = open(outfile, "w", encoding="utf8")
+        f = open(outfile, "w", encoding="utf8") 
         json.dump(base, f, indent=4)
     else:
         data = json.loads(f.read())
@@ -189,22 +188,21 @@ def export_data(page, outfile):
         json.dump(base, f, indent=4)
         f.truncate()
 
-
-
 def paraphrase_text(seed, sentence):
     """ This function paraphrases a given sentence using the PARROT library """
 
+    ### Trained model found on github ###
     parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 
+    ### Using PyTorch ###
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
 
-
+    ### Breaking up the sentence to paraphrase ###
     questions = []
     for s in sentence:
-
-        para_phrases = parrot.augment(input_phrase=s)
+        para_phrases = parrot.augment(input_phrase=s) # Paraphraser
         if para_phrases is None:
             break
         else:
@@ -212,19 +210,14 @@ def paraphrase_text(seed, sentence):
                 para_phrase = para_phrase[0]
                 questions.append(para_phrase)
 
-    return questions
+    ### Returns a list of paraphrased sentences without the original ###
+    return questions 
 
 if __name__ == "__main__":
     page = 1
 
-    # reproduce_text(1234)
-
     # Using a pretrained model found on github! 
     parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-
-    # sentence = ["What are metaclasses in Python?"]
-    # lists = paraphrase_text(1234, sentence)
-
 
     # Uncommenting this will cause refresh
     export_data(page, "intents.json")
