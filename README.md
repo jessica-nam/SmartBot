@@ -1,4 +1,4 @@
-# SmartBot
+# Stacky
 
 ## Introduction
 According to a report on the Chatbot Market by Global Forecast, the Chatbot market size will grow to $10.5 billion by 2026. Chatbots have been utilized by many different industries, ranging from e-commerce to education, in an effort to increase user engagement and efficiency. 
