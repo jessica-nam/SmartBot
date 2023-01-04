@@ -14,7 +14,7 @@ URL1 = "https://stackoverflow.com/questions/tagged/"
 URL2 = "https://stackoverflow.com/questions/"  # For getting answer URL
 
 # default is no tag and newest tab
-TAG = "dynamic"  # can be "python", "recursion". etc.
+TAG = "model"  # can be "python", "recursion". etc.
 
 # can be "newest", "votes", "Frequent (Questions with most links)"
 TAB = "votes"
