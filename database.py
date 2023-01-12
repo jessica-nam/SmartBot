@@ -14,7 +14,7 @@ URL1 = "https://stackoverflow.com/questions/tagged/"
 URL2 = "https://stackoverflow.com/questions/"  # For getting answer URL
 
 # default is no tag and newest tab
-TAG = "model"  # can be "python", "recursion". etc.
+TAG = "python"  # can be "python", "recursion". etc.
 
 # can be "newest", "votes", "Frequent (Questions with most links)"
 TAB = "votes"
@@ -81,6 +81,7 @@ def scrape_one_question_page(page):
 
         # Grab question
         question = x.text.strip()
+        print(question)
 
         # Grab question summary
         questionSum = y.text.strip()
